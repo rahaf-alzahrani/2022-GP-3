@@ -1,0 +1,465 @@
+2022-12-10 10:58:16,566 Result from connect: Connection Accepted.
+2022-12-10 10:58:16,575 I've subscribe with QoS: 0
+2022-12-10 15:05:57,155 Result from connect: Connection Accepted.
+2022-12-10 15:05:57,168 I've subscribe with QoS: 0
+2022-12-10 16:19:17,052 Result from connect: Connection Accepted.
+2022-12-10 16:19:17,063 I've subscribe with QoS: 0
+2022-12-10 17:53:25,764 Result from connect: Connection Accepted.
+2022-12-10 17:53:26,301 I've subscribe with QoS: 0
+2022-12-10 22:53:20,234 Message Received: 
+2022-12-10 22:53:20,234 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670712799}
+2022-12-10 22:53:20,235 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670712799
+
+2022-12-10 22:53:20,287 Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2022-12-10 22:53:20,340 Making request: POST https://oauth2.googleapis.com/token
+2022-12-10 22:53:20,413 Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2022-12-10 22:53:21,724 https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2022-12-10 22:53:22,420 Starting new HTTPS connection (1): elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443
+2022-12-10 22:53:23,002 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:53:30,441 Message Received: 
+2022-12-10 22:53:30,442 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670712809}
+2022-12-10 22:53:30,442 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670712809
+
+2022-12-10 22:53:30,863 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:55:41,043 Message Received: 
+2022-12-10 22:55:41,044 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670712939}
+2022-12-10 22:55:41,044 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670712939
+
+2022-12-10 22:55:41,045 Resetting dropped connection: elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app
+2022-12-10 22:55:41,555 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:55:51,893 Message Received: 
+2022-12-10 22:55:51,893 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670712949}
+2022-12-10 22:55:51,893 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670712949
+
+2022-12-10 22:55:52,007 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:56:01,804 Message Received: 
+2022-12-10 22:56:01,805 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670712959}
+2022-12-10 22:56:01,805 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670712959
+
+2022-12-10 22:56:01,905 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:56:11,318 Message Received: 
+2022-12-10 22:56:11,319 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670712969}
+2022-12-10 22:56:11,319 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670712969
+
+2022-12-10 22:56:11,438 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:56:21,321 Message Received: 
+2022-12-10 22:56:21,321 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670712979}
+2022-12-10 22:56:21,321 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670712979
+
+2022-12-10 22:56:21,692 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:56:30,955 Message Received: 
+2022-12-10 22:56:30,955 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670712989}
+2022-12-10 22:56:30,955 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670712989
+
+2022-12-10 22:56:31,132 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:56:41,665 Message Received: 
+2022-12-10 22:56:41,665 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670712999}
+2022-12-10 22:56:41,665 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670712999
+
+2022-12-10 22:56:41,765 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:56:51,323 Message Received: 
+2022-12-10 22:56:51,323 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713009}
+2022-12-10 22:56:51,323 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713009
+
+2022-12-10 22:56:51,425 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:57:01,473 Message Received: 
+2022-12-10 22:57:01,473 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713019}
+2022-12-10 22:57:01,473 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713019
+
+2022-12-10 22:57:01,884 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:57:11,343 Message Received: 
+2022-12-10 22:57:11,343 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713029}
+2022-12-10 22:57:11,344 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713029
+
+2022-12-10 22:57:11,709 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:57:21,326 Message Received: 
+2022-12-10 22:57:21,326 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713039}
+2022-12-10 22:57:21,326 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713039
+
+2022-12-10 22:57:22,297 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:57:32,419 Message Received: 
+2022-12-10 22:57:32,419 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713049}
+2022-12-10 22:57:32,419 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713049
+
+2022-12-10 22:57:32,524 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:59:44,241 Message Received: 
+2022-12-10 22:59:44,242 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713183}
+2022-12-10 22:59:44,242 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713183
+
+2022-12-10 22:59:44,245 Resetting dropped connection: elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app
+2022-12-10 22:59:44,641 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 22:59:54,502 Message Received: 
+2022-12-10 22:59:54,502 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713193}
+2022-12-10 22:59:54,502 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713193
+
+2022-12-10 22:59:54,635 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:00:04,517 Message Received: 
+2022-12-10 23:00:04,517 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713203}
+2022-12-10 23:00:04,518 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713203
+
+2022-12-10 23:00:04,631 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:01:09,121 Message Received: 
+2022-12-10 23:01:09,121 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713267}
+2022-12-10 23:01:09,121 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713267
+
+2022-12-10 23:01:09,224 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:01:19,399 Message Received: 
+2022-12-10 23:01:19,399 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713277}
+2022-12-10 23:01:19,399 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713277
+
+2022-12-10 23:01:19,546 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:01:29,571 Message Received: 
+2022-12-10 23:01:29,571 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713287}
+2022-12-10 23:01:29,571 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713287
+
+2022-12-10 23:01:29,736 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:01:39,503 Message Received: 
+2022-12-10 23:01:39,503 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713297}
+2022-12-10 23:01:39,503 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713297
+
+2022-12-10 23:01:39,589 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:01:49,643 Message Received: 
+2022-12-10 23:01:49,643 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713307}
+2022-12-10 23:01:49,643 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713307
+
+2022-12-10 23:01:49,769 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:01:59,676 Message Received: 
+2022-12-10 23:01:59,677 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713317}
+2022-12-10 23:01:59,677 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713317
+
+2022-12-10 23:01:59,785 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:02:09,608 Message Received: 
+2022-12-10 23:02:09,609 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713327}
+2022-12-10 23:02:09,609 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713327
+
+2022-12-10 23:02:09,700 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:02:19,540 Message Received: 
+2022-12-10 23:02:19,540 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713337}
+2022-12-10 23:02:19,540 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713337
+
+2022-12-10 23:02:19,735 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:02:29,680 Message Received: 
+2022-12-10 23:02:29,680 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713347}
+2022-12-10 23:02:29,680 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713347
+
+2022-12-10 23:02:29,795 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:02:39,717 Message Received: 
+2022-12-10 23:02:39,717 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713357}
+2022-12-10 23:02:39,717 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713357
+
+2022-12-10 23:02:39,814 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:02:49,646 Message Received: 
+2022-12-10 23:02:49,646 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713367}
+2022-12-10 23:02:49,646 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713367
+
+2022-12-10 23:02:49,739 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:02:59,682 Message Received: 
+2022-12-10 23:02:59,682 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713377}
+2022-12-10 23:02:59,682 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713377
+
+2022-12-10 23:02:59,783 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:03:09,648 Message Received: 
+2022-12-10 23:03:09,648 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713387}
+2022-12-10 23:03:09,648 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713387
+
+2022-12-10 23:03:09,757 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:03:19,555 Message Received: 
+2022-12-10 23:03:19,555 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713397}
+2022-12-10 23:03:19,556 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713397
+
+2022-12-10 23:03:20,594 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:03:29,739 Message Received: 
+2022-12-10 23:03:29,739 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713407}
+2022-12-10 23:03:29,739 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713407
+
+2022-12-10 23:03:29,876 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:04:14,398 Message Received: 
+2022-12-10 23:04:14,398 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713453}
+2022-12-10 23:04:14,399 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713453
+
+2022-12-10 23:04:14,725 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:04:24,660 Message Received: 
+2022-12-10 23:04:24,661 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713463}
+2022-12-10 23:04:24,661 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713463
+
+2022-12-10 23:04:24,965 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:04:34,622 Message Received: 
+2022-12-10 23:04:34,622 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713473}
+2022-12-10 23:04:34,622 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713473
+
+2022-12-10 23:04:35,090 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:04:44,568 Message Received: 
+2022-12-10 23:04:44,568 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713483}
+2022-12-10 23:04:44,568 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713483
+
+2022-12-10 23:04:49,734 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:04:54,743 Message Received: 
+2022-12-10 23:04:54,743 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713493}
+2022-12-10 23:04:54,743 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713493
+
+2022-12-10 23:04:54,996 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:05:04,739 Message Received: 
+2022-12-10 23:05:04,739 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713503}
+2022-12-10 23:05:04,739 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713503
+
+2022-12-10 23:05:04,910 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:05:14,535 Message Received: 
+2022-12-10 23:05:14,535 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713513}
+2022-12-10 23:05:14,535 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713513
+
+2022-12-10 23:05:15,042 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:05:24,556 Message Received: 
+2022-12-10 23:05:24,556 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713523}
+2022-12-10 23:05:24,557 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713523
+
+2022-12-10 23:05:25,005 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:05:34,118 Message Received: 
+2022-12-10 23:05:34,118 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713533}
+2022-12-10 23:05:34,118 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713533
+
+2022-12-10 23:05:34,267 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:05:44,690 Message Received: 
+2022-12-10 23:05:44,691 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713543}
+2022-12-10 23:05:44,691 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713543
+
+2022-12-10 23:05:45,409 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:05:54,587 Message Received: 
+2022-12-10 23:05:54,587 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713553}
+2022-12-10 23:05:54,587 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713553
+
+2022-12-10 23:05:56,784 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:06:04,658 Message Received: 
+2022-12-10 23:06:04,658 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713563}
+2022-12-10 23:06:04,658 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713563
+
+2022-12-10 23:06:06,119 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:06:14,582 Message Received: 
+2022-12-10 23:06:14,582 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713573}
+2022-12-10 23:06:14,582 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713573
+
+2022-12-10 23:06:16,673 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:06:24,806 Message Received: 
+2022-12-10 23:06:24,807 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713583}
+2022-12-10 23:06:24,807 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713583
+
+2022-12-10 23:06:25,010 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:06:34,621 Message Received: 
+2022-12-10 23:06:34,621 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713593}
+2022-12-10 23:06:34,622 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713593
+
+2022-12-10 23:06:34,716 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:06:44,671 Message Received: 
+2022-12-10 23:06:44,671 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713603}
+2022-12-10 23:06:44,671 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713603
+
+2022-12-10 23:06:45,060 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:06:54,701 Message Received: 
+2022-12-10 23:06:54,701 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713613}
+2022-12-10 23:06:54,702 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713613
+
+2022-12-10 23:06:54,837 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0
+2022-12-10 23:07:04,681 Message Received: 
+2022-12-10 23:07:04,682 {'deviceID': 'gps123id42', 'lat': 0, 'lng': 0, 'timestamp': 1670713623}
+2022-12-10 23:07:04,682 
+ DeviceID: gps123id42
+ lat: 0
+ lng: 0
+ timestamp: 1670713623
+
+2022-12-10 23:07:04,891 https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app:443 "PUT /gps123id42.json?print=silent HTTP/1.1" 204 0

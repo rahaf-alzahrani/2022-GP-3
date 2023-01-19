@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+import 'package:elfaa/constants.dart';
+
+enum Action { ok }
+
+class range_alert {
+  static Future<Action> oklDialog(
+    BuildContext context,
+    String title,
+    String body,
+  ) async {
+    final action = await showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            title: Center(child: Text(title)),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Container(
+                  child: Text(
+                    body,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(Action.ok),
+                        child: Text(
+                          'حسنًا',
+                          style: TextStyle(
+                              color: kPrimaryColor,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ])
+              ],
+            ),
+          );
+        });
+    return (action != null) ? action : action.cancel;
+  }
+}

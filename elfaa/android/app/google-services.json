@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "842724578520",
+    "firebase_url": "https://elfaa-2023-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "elfaa-2023",
+    "storage_bucket": "elfaa-2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842724578520:android:03906fa7427f74526ff3ad",
+        "android_client_info": {
+          "package_name": "com.elfaa.elfaa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842724578520-80ujmg4djp6o5pd1rut4pl3662ol3no1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.elfaa.elfaa",
+            "certificate_hash": "fd02e64dba9b70d261394231623b5e3e8b13750c"
+          }
+        },
+        {
+          "client_id": "842724578520-0coa3v5n0uor1803np78otahpmqruh0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0gdiL3MAGraFsgHwrzPxkQkmQIbcUldI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842724578520-0coa3v5n0uor1803np78otahpmqruh0t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "842724578520-0kbs78pbmqb04keov1d6n1oodttkvujc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.elfaa.elfaa"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

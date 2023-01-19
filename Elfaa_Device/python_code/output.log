@@ -1,0 +1,1187 @@
+Result from connect: Connection Accepted.
+I've subscribe with QoS: 0
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610216}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610216
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610226}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610226
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610236}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610236
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610246}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610246
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610256}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610256
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610266}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610266
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610276}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610276
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610286}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610286
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610296}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610296
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610306}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610306
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610316}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610316
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610326}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610326
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610336}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610336
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610346}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610346
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610356}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610356
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610366}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610366
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610376}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610376
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610386}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610386
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610396}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610396
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610406}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610406
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610416}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610416
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610426}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610426
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610436}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610436
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610446}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610446
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610456}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610456
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610466}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610466
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610476}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610476
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610486}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610486
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610496}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610496
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610506}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610506
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610516}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610516
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610526}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610526
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610536}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610536
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610546}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610546
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610556}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610556
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610566}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610566
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610576}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610576
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610586}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610586
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610596}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610596
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610606}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610606
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610616}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610616
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610626}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610626
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610636}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610636
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610646}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610646
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610656}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610656
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610666}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610666
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610676}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610676
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610686}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610686
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610696}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610696
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610706}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610706
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610716}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610716
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610726}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610726
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610736}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610736
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610746}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610746
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610756}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610756
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610766}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610766
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610776}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610776
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610786}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610786
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610796}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610796
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610806}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610806
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610816}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610816
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610826}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610826
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610836}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610836
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610846}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610846
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610856}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610856
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610866}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610866
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610876}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610876
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610886}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610886
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610896}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610896
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610906}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610906
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610916}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610916
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610926}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610926
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610936}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610936
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610946}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610946
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610956}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610956
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610966}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610966
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610976}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610976
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610986}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610986
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670610996}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670610996
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611006}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611006
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611016}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611016
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611026}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611026
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611036}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611036
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611046}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611046
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611056}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611056
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611066}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611066
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611076}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611076
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611086}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611086
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611096}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611096
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611106}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611106
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611116}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611116
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611126}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611126
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611136}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611136
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611146}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611146
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611156}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611156
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611166}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611166
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611176}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611176
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611186}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611186
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611196}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611196
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611206}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611206
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611216}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611216
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611226}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611226
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611236}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611236
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611246}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611246
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611256}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611256
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611266}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611266
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611276}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611276
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611286}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611286
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611296}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611296
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611306}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611306
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611316}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611316
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611326}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611326
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611336}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611336
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611346}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611346
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611356}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611356
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611366}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611366
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611377}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611377
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611387}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611387
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611397}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611397
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611407}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611407
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611417}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611417
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611427}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611427
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611437}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611437
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611447}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611447
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611457}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611457
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611467}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611467
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611477}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611477
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611487}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611487
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611497}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611497
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611507}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611507
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611517}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611517
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611527}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611527
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611537}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611537
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611547}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611547
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611557}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611557
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611567}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611567
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611577}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611577
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611587}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611587
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611597}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611597
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611607}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611607
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611617}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611617
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611627}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611627
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611637}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611637
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611647}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611647
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611657}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611657
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611667}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611667
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611677}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611677
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611687}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611687
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611697}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611697
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611707}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611707
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611717}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611717
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611727}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611727
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611737}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611737
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611747}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611747
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611757}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611757
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611767}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611767
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611777}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611777
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611787}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611787
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611797}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611797
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611807}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611807
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611817}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611817
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611827}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611827
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611837}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611837
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611847}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611847
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611857}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611857
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611867}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611867
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611877}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611877
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611887}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611887
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611897}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611897
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611907}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611907
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611917}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611917
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611927}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611927
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611937}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611937
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611947}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611947
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611957}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611957
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611967}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611967
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611977}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611977
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611987}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611987
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611997}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611997
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612007}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612007
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612017}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612017
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612027}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612027
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612037}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612037
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612047}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612047
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612057}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612057
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612067}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612067
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612077}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612077
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612087}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612087
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612097}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612097
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612107}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611787
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611797}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611797
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611807}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611807
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611817}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611817
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611827}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611827
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611837}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611837
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611847}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611847
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611857}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611857
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611867}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611867
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611877}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611877
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611887}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611887
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611897}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611897
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611907}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611907
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611917}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611917
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611927}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611927
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611937}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611937
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611947}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611947
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611957}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611957
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611967}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611967
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611977}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611977
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611987}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611987
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670611997}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670611997
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612007}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612007
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612017}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612017
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612027}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612027
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612037}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612037
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612047}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612047
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612057}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612057
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612067}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612067
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612077}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612077
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612087}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612087
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612097}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612097
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612107}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612107
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612118}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612118
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612128}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612128
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612138}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612138
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612148}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612148
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612158}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612158
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612168}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612168
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612178}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612178
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612188}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612188
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612198}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612198
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612208}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612208
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612218}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612218
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612228}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612228
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612238}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612238
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612248}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612248
+{'deviceID': 'gps123id42', 'lat': 23.78138924, 'lng': 90.40232086, 'timestamp': 1670612258}
+DeviceID: gps123id42
+ lat: 23.78138924
+ lng: 90.40232086
+ timestamp: 1670612258
