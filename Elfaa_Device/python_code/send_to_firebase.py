@@ -56,7 +56,7 @@ def on_message(client, userdata, msg):
         logger.debug("\n DeviceID: {}\n lat: {}\n lng: {}\n timestamp: {}\n".format(
             deviceID, lat, lng, timestamp))
         path = "/{}".format(deviceID)
-        ref = db.reference(path)
+        ref = db.reference("devices").child(deviceID);
         ref.set(message_json)
     except:
         print("Error message format")
