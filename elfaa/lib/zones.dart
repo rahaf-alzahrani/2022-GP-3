@@ -91,7 +91,7 @@ class zones {
   ];
   List<Marker> markers = [];
   //winter wender land
-  List<LatLng> parking1_W = [
+  List<LatLng> c_parking1_W = [
     LatLng(24.773336, 46.644482),
     LatLng(24.772433, 46.642303),
     LatLng(24.774246, 46.641876),
@@ -99,7 +99,7 @@ class zones {
     LatLng(24.775553, 46.642887),
     LatLng(24.775256, 46.643531),
   ];
-  List<LatLng> mainGate_W = [
+  List<LatLng> c_mainGate_W = [
     LatLng(24.773166, 46.644561),
     LatLng(24.773336, 46.644482),
     LatLng(24.772433, 46.642303),
@@ -138,13 +138,13 @@ class zones {
     LatLng(24.765217, 46.645624),
     LatLng(24.766252, 46.648034),
   ];
-  List<LatLng> gate2_w = [
+  List<LatLng> c_gate2_w = [
     LatLng(24.765217, 46.645624),
     LatLng(24.766252, 46.648034),
     LatLng(24.765978, 46.648184),
     LatLng(24.765014, 46.645796),
   ];
-  List<LatLng> parking2_w = [
+  List<LatLng> c_parking2_w = [
     LatLng(24.765970, 46.648180),
     LatLng(24.765010, 46.645790),
     LatLng(24.764587, 46.646367),
@@ -156,7 +156,7 @@ class zones {
   ];
   //winter wender land
   //bolivard
-  List<LatLng> parking1_b = [
+  List<LatLng> c_parking1_b = [
     LatLng(24.776649, 46.597483),
     LatLng(24.776507, 46.596910),
     LatLng(24.771279, 46.598833),
@@ -168,7 +168,7 @@ class zones {
     LatLng(24.773199, 46.599453),
     LatLng(24.773363, 46.599161),
   ];
-  List<Point> parking1_bb = [
+  List<Point> c_parking1_bb = [
     Point(x: 24.776649, y: 46.597483),
     Point(x: 24.776507, y: 46.596910),
     Point(x: 24.771279, y: 46.598833),
@@ -180,13 +180,13 @@ class zones {
     Point(x: 24.773199, y: 46.599453),
     Point(x: 24.773363, y: 46.599161),
   ];
-  List<LatLng> parking2_b = [
+  List<LatLng> c_parking2_b = [
     LatLng(24.781752, 46.602491),
     LatLng(24.779268, 46.596659),
     LatLng(24.777812, 46.597502),
     LatLng(24.780235, 46.603357),
   ];
-  List<LatLng> gate1_b = [
+  List<LatLng> c_gate1_b = [
     LatLng(24.773407, 46.600164),
     LatLng(24.773213, 46.599713),
     LatLng(24.773234, 46.599432),
@@ -251,7 +251,7 @@ class zones {
     Point(y: 24.777732, x: 46.600083),
     Point(y: 24.775818, x: 46.601061),
   ];
-  List<LatLng> gate2_b = [
+  List<LatLng> c_gate2_b = [
     LatLng(24.777677, 46.599828),
     LatLng(24.777892, 46.599715),
     LatLng(24.778110, 46.599907),
@@ -265,7 +265,7 @@ class zones {
     polygons.add(
       Polygon(
         polygonId: PolygonId("1"),
-        points: parking1_W,
+        points: c_parking1_W,
         fillColor: Colors.orange.withOpacity(0.2),
         strokeColor: Colors.orange,
         strokeWidth: 2,
@@ -274,7 +274,7 @@ class zones {
     polygons.add(
       Polygon(
         polygonId: PolygonId("2"),
-        points: mainGate_W,
+        points: c_mainGate_W,
         fillColor: Colors.red.withOpacity(0.2),
         strokeColor: Colors.red,
         strokeWidth: 2,
@@ -319,7 +319,7 @@ class zones {
     polygons.add(
       Polygon(
         polygonId: PolygonId("7"),
-        points: gate2_w,
+        points: c_gate2_w,
         fillColor: Colors.red.withOpacity(0.2),
         strokeColor: Colors.red,
         strokeWidth: 2,
@@ -328,7 +328,7 @@ class zones {
     polygons.add(
       Polygon(
         polygonId: PolygonId("8"),
-        points: parking2_w,
+        points: c_parking2_w,
         fillColor: Colors.orange.withOpacity(0.2),
         strokeColor: Colors.orange,
         strokeWidth: 2,
@@ -339,7 +339,7 @@ class zones {
     polygons.add(
       Polygon(
         polygonId: PolygonId("9"),
-        points: parking1_b,
+        points: c_parking1_b,
         fillColor: Colors.orange.withOpacity(0.2),
         strokeColor: Colors.orange,
         strokeWidth: 2,
@@ -357,7 +357,7 @@ class zones {
     polygons.add(
       Polygon(
         polygonId: PolygonId("11"),
-        points: gate1_b,
+        points: c_gate1_b,
         fillColor: Colors.red.withOpacity(0.2),
         strokeColor: Colors.red,
         strokeWidth: 2,
@@ -447,7 +447,7 @@ class zones {
     polygons.add(
       Polygon(
         polygonId: PolygonId("21"),
-        points: gate2_b,
+        points: c_gate2_b,
         fillColor: ui.Color.fromARGB(255, 255, 0, 0).withOpacity(0.2),
         strokeColor: ui.Color.fromARGB(255, 255, 0, 0),
         strokeWidth: 2,

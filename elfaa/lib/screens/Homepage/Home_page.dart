@@ -11,7 +11,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:elfaa/constants.dart';
 import 'package:location/location.dart';
-import '../mngChildInfo/zones.dart';
+import 'package:point_in_polygon/point_in_polygon.dart';
+import '../../zones.dart';
 import 'dart:ui' as ui;
 import 'childrenList.dart';
 import 'package:http/http.dart' as http;
@@ -28,6 +29,7 @@ final Color color2 = kPrimaryColor;
 final Color color3 = kPrimaryColor;
 String username = "";
 List<childrenList> _childrenList = [];
+List? zoneNames;
 
 class HomePage extends StatefulWidget {
   @override
@@ -56,6 +58,12 @@ class _HomePageState extends State<HomePage> {
   Future<void> addZones() async {
     zoneList = zones();
     zoneList.LoadData();
+  }
+
+  Future<void> addZonesName() async {
+    for (int i = 0; i < zoneList.zoneName.length; i++) {
+      // zoneList.add( zoneList.zoneName[i]:zoneList.c_gate1_b);
+    }
   }
 
   Future<void> getMyCurrentLocation() async {
@@ -98,56 +106,58 @@ class _HomePageState extends State<HomePage> {
   }
 
 //critical zones
-  // LocationData? currentLocation2;
-  // void check_zone() async {
-  //   Location location = Location();
-  //   location.getLocation().then(
-  //     (location) {
-  //       currentLocation = location;
-  //     },
-  //   );
-  //   GoogleMapController googleMapController = await _mapcontroller.future;
-  //   location.onLocationChanged.listen(
-  //     (newLoc) {
-  //       currentLocation = newLoc;
-  //       final Point point = Point(x: newLoc.latitude!, y: newLoc.longitude!);
-  //       if (Poly.isPointInPolygon(point, zoneList.way_WW)) {
-  //         showDialog(
-  //           context: context,
-  //           builder: (ctx) => AlertDialog(
-  //             title: const Text("Alert Dialog Box"),
-  //             content: const Text("You have raised a Alert Dialog Box"),
-  //             actions: <Widget>[
-  //               TextButton(
-  //                 onPressed: () {
-  //                   Navigator.of(ctx).pop();
-  //                 },
-  //                 child: Container(
-  //                   color: Colors.green,
-  //                   padding: const EdgeInsets.all(14),
-  //                   child: const Text("okay"),
-  //                 ),
-  //               ),
-  //             ],
-  //           ),
-  //         );
-  //       }
+  LocationData? currentLocation2;
+  void check_zone() async {
+    Location location = Location();
+    location.getLocation().then(
+      (location) {
+        currentLocation = location;
+      },
+    );
+    GoogleMapController googleMapController = await _mapcontroller.future;
+    location.onLocationChanged.listen(
+      (newLoc) {
+        currentLocation = newLoc;
+        final Point point = Point(x: newLoc.latitude!, y: newLoc.longitude!);
+        for (int i = 0; i < zoneList.zoneName.length; i++) {
+          if (Poly.isPointInPolygon(point, zoneList.way_WW)) {
+            showDialog(
+              context: context,
+              builder: (ctx) => AlertDialog(
+                title: const Text("Alert Dialog Box"),
+                content: const Text("You have raised a Alert Dialog Box"),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(ctx).pop();
+                    },
+                    child: Container(
+                      color: Colors.green,
+                      padding: const EdgeInsets.all(14),
+                      child: const Text("okay"),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }
+        }
 
-  // googleMapController.animateCamera(
-  //   CameraUpdate.newCameraPosition(
-  //     CameraPosition(
-  //       zoom: 17,
-  //       target: LatLng(
-  //         newLoc.latitude!,
-  //         newLoc.longitude!,
-  //       ),
-  //     ),
-  //   ),
-  //       // );
-  //       setState(() {});
-  //     },
-  //   );
-  // }
+        googleMapController.animateCamera(
+          CameraUpdate.newCameraPosition(
+            CameraPosition(
+              zoom: 17,
+              target: LatLng(
+                newLoc.latitude!,
+                newLoc.longitude!,
+              ),
+            ),
+          ),
+        );
+        setState(() {});
+      },
+    );
+  }
 
 //range
   void check_range() async {
@@ -307,8 +317,6 @@ class _HomePageState extends State<HomePage> {
     super.didChangeDependencies();
     getChildrenList();
   }
-
-  
 
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
