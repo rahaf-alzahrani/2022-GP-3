@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
+import '../../range_alert.dart';
 import 'package:age_calculator/age_calculator.dart';
 import 'package:elfaa/screens/Homepage/Home_page.dart';
 import 'package:elfaa/screens/Homepage/navPage.dart';
@@ -127,25 +128,13 @@ class _viewChildState extends State<viewChild> {
           if (Poly.isPointInPolygon(point, zoneList.zoneNames[i]['points'])) {
             theZoneName = zoneList.zoneNames[i]['name'];
 
-            if (zoneList.zoneNames[i]['name'][0] == "ب") {
-              showDialog(
-                context: context,
-                builder: (ctx) => AlertDialog(
-                  title: const Text("Alert Dialog Box"),
-                  content: const Text("You have raised a Alert Dialog Box"),
-                  actions: <Widget>[
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(ctx).pop();
-                      },
-                      child: Container(
-                        color: Colors.green,
-                        padding: const EdgeInsets.all(14),
-                        child: const Text("okay"),
-                      ),
-                    ),
-                  ],
-                ),
+            if (zoneList.zoneNames[i]['name'][0] == "ب" ||
+                zoneList.zoneNames[i]['name'][0] == "م") {
+              range_alert.oklDialog(
+                context,
+                "تحذير  ",
+                "انتبه طفلك دخل منطقة محظورة " +
+                    "\"${zoneList.zoneNames[i]['name']}\"",
               );
             }
           }

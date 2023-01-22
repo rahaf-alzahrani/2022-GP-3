@@ -256,25 +256,25 @@ class _HomePageState extends State<HomePage> {
           continue;
         }
         Map newData = child.value as Map;
-        showDialog(
-          context: context,
-          builder: (ctx) => AlertDialog(
-            title: const Text("Alert Dialog Box"),
-            content: Text("You have raised a Alert Dialog Box" + "$newData"),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(ctx).pop();
-                },
-                child: Container(
-                  color: Colors.green,
-                  padding: const EdgeInsets.all(14),
-                  child: const Text("okay"),
-                ),
-              ),
-            ],
-          ),
-        );
+        // showDialog(
+        //   context: context,
+        //   builder: (ctx) => AlertDialog(
+        //     title: const Text("Alert Dialog Box"),
+        //     content: Text("You have raised a Alert Dialog Box" + "$newData"),
+        //     actions: <Widget>[
+        //       TextButton(
+        //         onPressed: () {
+        //           Navigator.of(ctx).pop();
+        //         },
+        //         child: Container(
+        //           color: Colors.green,
+        //           padding: const EdgeInsets.all(14),
+        //           child: const Text("okay"),
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // );
         if (newData["lat"].toInt() == 0 && newData["long"].toInt() == 0) {
           if (markersMap.containsKey(child.key!)) {
             setState(() {
