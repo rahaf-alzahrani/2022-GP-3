@@ -6,6 +6,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 class HomelistBox extends StatelessWidget {
   final childrenList _childlist;
   Map<String, Marker> markersMap;
+
   HomelistBox(this._childlist, this.markersMap);
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,7 @@ class HomelistBox extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                                                    Row(
+                            Row(
                               children: [
                                 // Container(
                                 //     height: 10,
@@ -91,9 +92,9 @@ class HomelistBox extends StatelessWidget {
                                 //top: 0.01,
                                 //bottom: 0.1
                               ),
-                              child: Text("منطقة الألعاب",
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.grey)),
+                              // child: Text("${_childlist.childID}",
+                              //     style: TextStyle(
+                              //         fontSize: 16, color: Colors.grey)),
                             ),
                             markersMap.containsKey(_childlist.childID)
                                 ? SizedBox()

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:elfaa/screens/Homepage/Home_page.dart';
-import 'package:elfaa/screens/mngChildInfo/zones.dart';
+import 'package:elfaa/zones.dart';
 import 'package:flutter/material.dart';
 import 'package:elfaa/constants.dart';
 import 'package:flutter/services.dart';
@@ -102,7 +102,7 @@ class _viewSecState extends State<viewSec> {
             .updateEmail(newEmail)
             .then(
               (value) => message = 'Success',
-        )
+            )
             .catchError((onError) => message = 'error');
         return message;
       }
@@ -348,7 +348,6 @@ Widget _buildName({required TextEditingController secName}) {
 Widget _buildEmail({required TextEditingController email}) {
   return Directionality(
       textDirection: TextDirection.rtl,
-
       child: Padding(
         padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
         child: TextFormField(

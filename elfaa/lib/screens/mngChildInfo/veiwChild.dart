@@ -6,7 +6,7 @@ import 'package:age_calculator/age_calculator.dart';
 import 'package:elfaa/screens/Homepage/Home_page.dart';
 import 'package:elfaa/screens/Homepage/navPage.dart';
 import 'package:elfaa/screens/mngChildInfo/report_child.dart';
-import 'package:elfaa/screens/mngChildInfo/zones.dart';
+import 'package:elfaa/zones.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:elfaa/constants.dart';
@@ -18,6 +18,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:geolocator/geolocator.dart' as geolocator;
+import 'package:point_in_polygon/point_in_polygon.dart';
 
 import '../../alert_dialog.dart';
 
@@ -44,6 +45,7 @@ class viewChild extends StatefulWidget {
 class _viewChildState extends State<viewChild> {
   bool tappedYes = false;
   bool loading = false;
+  var theZoneName = "";
 
   GoogleMapController? mapController;
   Uint8List? markerimage;
@@ -57,6 +59,35 @@ class _viewChildState extends State<viewChild> {
   Future<void> addZones() async {
     zoneList = zones();
     zoneList.LoadData();
+  }
+
+  LocationData? currentLocation2;
+  void check_zone() {
+    Location location = Location();
+    location.getLocation().then(
+      (location) {
+        currentLocation = location;
+      },
+    );
+    //GoogleMapController googleMapController = await _mapcontroller.future;
+    location.onLocationChanged.listen(
+      (newLoc) {
+        currentLocation = newLoc;
+
+        // googleMapController.animateCamera(
+        //   CameraUpdate.newCameraPosition(
+        //     CameraPosition(
+        //       zoom: 17,
+        //       target: LatLng(
+        //         newLoc.latitude!,
+        //         newLoc.longitude!,
+        //       ),
+        //     ),
+        //   ),
+        // );
+        setState(() {});
+      },
+    );
   }
 
   @override
@@ -78,6 +109,7 @@ class _viewChildState extends State<viewChild> {
         return;
       }
       setState(() {
+        zoneList.addZonesName();
         marker = Marker(
           markerId: MarkerId('${widget.childID}'),
           position: LatLng(data['lat'], data['long']),
@@ -89,6 +121,35 @@ class _viewChildState extends State<viewChild> {
           fillColor: Colors.blue.shade100.withOpacity(0.5),
           strokeColor: Colors.blue.shade100.withOpacity(0.1),
         );
+
+        final Point point = Point(x: data['lat'], y: data['long']);
+        for (int i = 0; i < zoneList.zoneName.length; i++) {
+          if (Poly.isPointInPolygon(point, zoneList.zoneNames[i]['points'])) {
+            theZoneName = zoneList.zoneNames[i]['name'];
+
+            if (zoneList.zoneNames[i]['name'][0] == "ب") {
+              showDialog(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                  title: const Text("Alert Dialog Box"),
+                  content: const Text("You have raised a Alert Dialog Box"),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(ctx).pop();
+                      },
+                      child: Container(
+                        color: Colors.green,
+                        padding: const EdgeInsets.all(14),
+                        child: const Text("okay"),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }
+          }
+        }
       });
     });
     super.initState();
@@ -129,7 +190,7 @@ class _viewChildState extends State<viewChild> {
   }
 
   static final CameraPosition _myCurrentLocationCameraPosition = CameraPosition(
-    target: LatLng(24.63333, 46.71667),
+    target: LatLng(24.769924, 46.646101),
     zoom: 12,
   );
 
@@ -173,7 +234,7 @@ class _viewChildState extends State<viewChild> {
       },
     ); //then
     location.onLocationChanged.listen((newLoc) {
-      updateMarkerAndcircle(newLoc);
+      //  updateMarkerAndcircle(newLoc);
     });
   }
 
@@ -184,7 +245,7 @@ class _viewChildState extends State<viewChild> {
     int childHeight = widget.childHeight;
     String childImage = widget.childImage;
     String childGender = widget.childGender;
-    String zoneName = 'الألعاب';
+    String zoneName = theZoneName;
 
     //Responsiviness variables
     final double ScreenHeight = MediaQuery.of(context).size.height;
@@ -333,13 +394,21 @@ class _viewChildState extends State<viewChild> {
                                         blurRadius: 8)
                                   ],
                                   borderRadius: BorderRadius.circular(10)),
-                              child: Text(
-                                " في منطقة " + "$zoneName",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                              )),
+                              child: theZoneName == ""
+                                  ? Text(
+                                      "المنطقة غير محددة" + "$theZoneName",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    )
+                                  : Text(
+                                      " في منطقة " + "$theZoneName",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold),
+                                    )),
                         ],
                       ),
                       Column(
@@ -646,11 +715,11 @@ class _viewChildState extends State<viewChild> {
           : Set<Marker>.of(zoneList.markers),
       myLocationButtonEnabled: true,
       initialCameraPosition: CameraPosition(
-        target: LatLng(31.963158, 35.930359),
+        target: LatLng(24.63333, 46.71667),
         zoom: 10,
       ),
       onCameraMove: (CameraPosition position) {
-        print(position.target);
+        // print(position.target);
       },
       onMapCreated: (GoogleMapController controller) {
         setState(() {

@@ -36,6 +36,7 @@ class zones {
 
     //bolivard
   ];
+
   List<String> zoneName = [
     //winter wender land
     " مواقف السيارات رقم ١",
@@ -89,6 +90,7 @@ class zones {
     LatLng(24.777857, 46.600048),
     //bolivard
   ];
+
   List<Marker> markers = [];
   //winter wender land
   List<LatLng> c_parking1_W = [
@@ -99,17 +101,37 @@ class zones {
     LatLng(24.775553, 46.642887),
     LatLng(24.775256, 46.643531),
   ];
+  List<Point> c_parking1_WW = [
+    Point(x: 24.773336, y: 46.644482),
+    Point(x: 24.772433, y: 46.642303),
+    Point(x: 24.774246, y: 46.641876),
+    Point(x: 24.775300, y: 46.642225),
+    Point(x: 24.775553, y: 46.642887),
+    Point(x: 24.775256, y: 46.643531),
+  ];
   List<LatLng> c_mainGate_W = [
     LatLng(24.773166, 46.644561),
     LatLng(24.773336, 46.644482),
     LatLng(24.772433, 46.642303),
     LatLng(24.772227, 46.642378),
   ];
+  List<Point> c_mainGate_WW = [
+    Point(x: 24.773166, y: 46.644561),
+    Point(x: 24.773336, y: 46.644482),
+    Point(x: 24.772433, y: 46.642303),
+    Point(x: 24.772227, y: 46.642378),
+  ];
   List<LatLng> carnival_W = [
     LatLng(24.773150, 46.644561),
     LatLng(24.772799, 46.643816),
     LatLng(24.769366, 46.645674),
     LatLng(24.769634, 46.646348),
+  ];
+  List<Point> carnival_WW = [
+    Point(x: 24.773150, y: 46.644561),
+    Point(x: 24.772799, y: 46.643816),
+    Point(x: 24.769366, y: 46.645674),
+    Point(x: 24.769634, y: 46.646348),
   ];
   List<LatLng> way_W = [
     LatLng(24.772790, 46.643810),
@@ -132,17 +154,38 @@ class zones {
     LatLng(24.770252, 46.643043),
     LatLng(24.768556, 46.643893),
   ];
+  List<Point> snow_ww = [
+    Point(x: 24.768992, y: 46.644860),
+    Point(x: 24.772530, y: 46.643200),
+    Point(x: 24.772227, y: 46.642378),
+    Point(x: 24.771149, y: 46.642754),
+    Point(x: 24.770798, y: 46.642689),
+    Point(x: 24.770252, y: 46.643043),
+    Point(x: 24.768556, y: 46.643893),
+  ];
   List<LatLng> winter_w = [
     LatLng(24.769600, 46.646340),
     LatLng(24.768520, 46.643890),
     LatLng(24.765217, 46.645624),
     LatLng(24.766252, 46.648034),
   ];
+  List<Point> winter_ww = [
+    Point(x: 24.769600, y: 46.646340),
+    Point(x: 24.768520, y: 46.643890),
+    Point(x: 24.765217, y: 46.645624),
+    Point(x: 24.766252, y: 46.648034),
+  ];
   List<LatLng> c_gate2_w = [
     LatLng(24.765217, 46.645624),
     LatLng(24.766252, 46.648034),
     LatLng(24.765978, 46.648184),
     LatLng(24.765014, 46.645796),
+  ];
+  List<Point> c_gate2_ww = [
+    Point(x: 24.765217, y: 46.645624),
+    Point(x: 24.766252, y: 46.648034),
+    Point(x: 24.765978, y: 46.648184),
+    Point(x: 24.765014, y: 46.645796),
   ];
   List<LatLng> c_parking2_w = [
     LatLng(24.765970, 46.648180),
@@ -153,6 +196,16 @@ class zones {
     LatLng(24.763907, 46.648705),
     LatLng(24.764037, 46.648999),
     LatLng(24.764228, 46.649075),
+  ];
+  List<Point> c_parking2_ww = [
+    Point(x: 24.765970, y: 46.648180),
+    Point(x: 24.765010, y: 46.645790),
+    Point(x: 24.764587, y: 46.646367),
+    Point(x: 24.764213, y: 46.646838),
+    Point(x: 24.764045, y: 46.647233),
+    Point(x: 24.763907, y: 46.648705),
+    Point(x: 24.764037, y: 46.648999),
+    Point(x: 24.764228, y: 46.649075),
   ];
   //winter wender land
   //bolivard
@@ -186,6 +239,12 @@ class zones {
     LatLng(24.777812, 46.597502),
     LatLng(24.780235, 46.603357),
   ];
+  List<Point> c_parking2_bb = [
+    Point(x: 24.781752, y: 46.602491),
+    Point(x: 24.779268, y: 46.596659),
+    Point(x: 24.777812, y: 46.597502),
+    Point(x: 24.780235, y: 46.603357),
+  ];
   List<LatLng> c_gate1_b = [
     LatLng(24.773407, 46.600164),
     LatLng(24.773213, 46.599713),
@@ -194,11 +253,25 @@ class zones {
     LatLng(24.773786, 46.599060),
     LatLng(24.773888, 46.599814),
   ];
+  List<Point> c_gate1_bb = [
+    Point(x: 24.773407, y: 46.600164),
+    Point(x: 24.773213, y: 46.599713),
+    Point(x: 24.773234, y: 46.599432),
+    Point(x: 24.773397, y: 46.599218),
+    Point(x: 24.773786, y: 46.599060),
+    Point(x: 24.773888, y: 46.599814),
+  ];
   List<LatLng> chaina_b = [
     LatLng(24.773890, 46.599849),
     LatLng(24.773320, 46.600260),
     LatLng(24.773986, 46.602041),
     LatLng(24.774632, 46.601717),
+  ];
+  List<Point> chaina_bb = [
+    Point(x: 24.773890, y: 46.599849),
+    Point(x: 24.773320, y: 46.600260),
+    Point(x: 24.773986, y: 46.602041),
+    Point(x: 24.774632, y: 46.601717),
   ];
   List<LatLng> italy_b = [
     LatLng(24.773888, 46.599814),
@@ -206,16 +279,33 @@ class zones {
     LatLng(24.775222, 46.601360),
     LatLng(24.774741, 46.599598),
   ];
+  List<Point> italy_bb = [
+    Point(x: 24.773888, y: 46.599814),
+    Point(x: 24.774632, y: 46.601717),
+    Point(x: 24.775222, y: 46.601360),
+    Point(x: 24.774741, y: 46.599598),
+  ];
   List<LatLng> usa_b = [
     LatLng(24.773888, 46.599814),
     LatLng(24.774741, 46.599598),
     LatLng(24.775568, 46.598109),
     LatLng(24.773786, 46.599060),
   ];
+  List<Point> usa_bb = [
+    Point(x: 24.773888, y: 46.599814),
+    Point(x: 24.774741, y: 46.599598),
+    Point(x: 24.775568, y: 46.598109),
+    Point(x: 24.773786, y: 46.599060),
+  ];
   List<LatLng> mec_b = [
     LatLng(24.775568, 46.598109),
     LatLng(24.774741, 46.599598),
     LatLng(24.775933, 46.599272),
+  ];
+  List<Point> mec_bb = [
+    Point(x: 24.775568, y: 46.598109),
+    Point(x: 24.774741, y: 46.599598),
+    Point(x: 24.775933, y: 46.599272),
   ];
   List<LatLng> india_b = [
     LatLng(24.776649, 46.597483),
@@ -223,21 +313,43 @@ class zones {
     LatLng(24.775933, 46.599272),
     LatLng(24.777732, 46.600083),
   ];
+  List<Point> india_bb = [
+    Point(x: 24.776649, y: 46.597483),
+    Point(x: 24.775568, y: 46.598109),
+    Point(x: 24.775933, y: 46.599272),
+    Point(x: 24.777732, y: 46.600083),
+  ];
   List<LatLng> spain_b = [
     LatLng(24.775933, 46.599272),
     LatLng(24.777732, 46.600083),
     LatLng(24.775250, 46.601360),
     LatLng(24.774741, 46.599598),
   ];
+  List<Point> spain_bb = [
+    Point(x: 24.775933, y: 46.599272),
+    Point(x: 24.777732, y: 46.600083),
+    Point(x: 24.775250, y: 46.601360),
+    Point(x: 24.774741, y: 46.599598),
+  ];
   List<LatLng> maroco_b = [
     LatLng(24.774465, 46.601910),
     LatLng(24.775447, 46.604178),
     LatLng(24.775818, 46.601061),
   ];
+  List<Point> maroco_bb = [
+    Point(x: 24.774465, y: 46.601910),
+    Point(x: 24.775447, y: 46.604178),
+    Point(x: 24.775818, y: 46.601061),
+  ];
   List<LatLng> greece_b = [
     LatLng(24.777754, 46.603048),
     LatLng(24.775447, 46.604178),
     LatLng(24.775818, 46.601061),
+  ];
+  List<Point> greece_bb = [
+    Point(x: 24.777754, y: 46.603048),
+    Point(x: 24.775447, y: 46.604178),
+    Point(x: 24.775818, y: 46.601061),
   ];
   List<LatLng> japan_b = [
     LatLng(24.777754, 46.603048),
@@ -246,11 +358,12 @@ class zones {
     LatLng(24.775818, 46.601061),
   ];
   List<Point> japan_bb = [
-    Point(y: 24.777754, x: 46.603048),
-    Point(y: 24.778860, x: 46.602487),
-    Point(y: 24.777732, x: 46.600083),
-    Point(y: 24.775818, x: 46.601061),
+    Point(x: 24.777754, y: 46.603048),
+    Point(x: 24.778860, y: 46.602487),
+    Point(x: 24.777732, y: 46.600083),
+    Point(x: 24.775818, y: 46.601061),
   ];
+
   List<LatLng> c_gate2_b = [
     LatLng(24.777677, 46.599828),
     LatLng(24.777892, 46.599715),
@@ -258,7 +371,46 @@ class zones {
     LatLng(24.778086, 46.600160),
     LatLng(24.777905, 46.600284),
   ];
+  List<Point> c_gate2_bb = [
+    Point(x: 24.777677, y: 46.599828),
+    Point(x: 24.777892, y: 46.599715),
+    Point(x: 24.778110, y: 46.599907),
+    Point(x: 24.778086, y: 46.600160),
+    Point(x: 24.777905, y: 46.600284),
+  ];
   //bolivard
+
+  List zoneNames = [];
+
+  addZonesName() async {
+    List<List<Point>> zonePoints = [
+      c_parking1_WW,
+      c_mainGate_WW,
+      carnival_WW,
+      way_WW,
+      snow_ww,
+      winter_ww,
+      c_gate2_ww,
+      c_parking2_ww,
+      c_parking1_bb,
+      c_parking2_bb,
+      c_gate1_bb,
+      chaina_bb,
+      italy_bb,
+      usa_bb,
+      mec_bb,
+      india_bb,
+      spain_bb,
+      maroco_bb,
+      greece_bb,
+      japan_bb,
+      c_gate2_bb,
+    ];
+    for (int i = 0; i < zoneName.length; i++) {
+      zoneNames.add({'name': zoneName[i], 'points': zonePoints[i]});
+    }
+  }
+
   Set<Polygon> polygons = HashSet<Polygon>();
   add() async {
     //winter wender land

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:elfaa/screens/mngChildInfo/veiwChild.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart' as geolocator;
@@ -29,7 +30,6 @@ final Color color2 = kPrimaryColor;
 final Color color3 = kPrimaryColor;
 String username = "";
 List<childrenList> _childrenList = [];
-List? zoneNames;
 
 class HomePage extends StatefulWidget {
   @override
@@ -38,6 +38,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String userid = "";
+
   bool isHeWithme = false;
   late final notification not;
   static Circle circle = Circle(
@@ -58,12 +59,6 @@ class _HomePageState extends State<HomePage> {
   Future<void> addZones() async {
     zoneList = zones();
     zoneList.LoadData();
-  }
-
-  Future<void> addZonesName() async {
-    for (int i = 0; i < zoneList.zoneName.length; i++) {
-      // zoneList.add( zoneList.zoneName[i]:zoneList.c_gate1_b);
-    }
   }
 
   Future<void> getMyCurrentLocation() async {
@@ -105,59 +100,60 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-//critical zones
-  LocationData? currentLocation2;
-  void check_zone() async {
-    Location location = Location();
-    location.getLocation().then(
-      (location) {
-        currentLocation = location;
-      },
-    );
-    GoogleMapController googleMapController = await _mapcontroller.future;
-    location.onLocationChanged.listen(
-      (newLoc) {
-        currentLocation = newLoc;
-        final Point point = Point(x: newLoc.latitude!, y: newLoc.longitude!);
-        for (int i = 0; i < zoneList.zoneName.length; i++) {
-          if (Poly.isPointInPolygon(point, zoneList.way_WW)) {
-            showDialog(
-              context: context,
-              builder: (ctx) => AlertDialog(
-                title: const Text("Alert Dialog Box"),
-                content: const Text("You have raised a Alert Dialog Box"),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(ctx).pop();
-                    },
-                    child: Container(
-                      color: Colors.green,
-                      padding: const EdgeInsets.all(14),
-                      child: const Text("okay"),
-                    ),
-                  ),
-                ],
-              ),
-            );
-          }
-        }
+// //critical zones
+//   LocationData? currentLocation2;
+//    void check_zone() async {
+//     Location location = Location();
+//     location.getLocation().then(
+//       (location) {
+//         currentLocation = location;
+//       },
+//     );
+//     GoogleMapController googleMapController = await _mapcontroller.future;
+//     location.onLocationChanged.listen(
+//       (newLoc) {
+//         currentLocation = newLoc;
+//         zoneList.addZonesName();
+//         final Point point = Point(x: newLoc.latitude!, y: newLoc.longitude!);
+//         for (int i = 0; i < zoneList.zoneName.length; i++) {
+//           if (Poly.isPointInPolygon(point, zoneList.zoneNames![i])) {
+//             showDialog(
+//               context: context,
+//               builder: (ctx) => AlertDialog(
+//                 title: const Text("Alert Dialog Box"),
+//                 content: const Text("You have raised a Alert Dialog Box"),
+//                 actions: <Widget>[
+//                   TextButton(
+//                     onPressed: () {
+//                       Navigator.of(ctx).pop();
+//                     },
+//                     child: Container(
+//                       color: Colors.green,
+//                       padding: const EdgeInsets.all(14),
+//                       child: const Text("okay"),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             );
+//           }
+//         }
 
-        googleMapController.animateCamera(
-          CameraUpdate.newCameraPosition(
-            CameraPosition(
-              zoom: 17,
-              target: LatLng(
-                newLoc.latitude!,
-                newLoc.longitude!,
-              ),
-            ),
-          ),
-        );
-        setState(() {});
-      },
-    );
-  }
+//         googleMapController.animateCamera(
+//           CameraUpdate.newCameraPosition(
+//             CameraPosition(
+//               zoom: 17,
+//               target: LatLng(
+//                 newLoc.latitude!,
+//                 newLoc.longitude!,
+//               ),
+//             ),
+//           ),
+//         );
+//         setState(() {});
+//       },
+//     );
+//   }
 
 //range
   void check_range() async {
@@ -248,6 +244,7 @@ class _HomePageState extends State<HomePage> {
   initState() {
     //check_zone();
     // not.initializePlatformSpecifics;
+
     getMyCurrentLocation();
     check_range();
     addZones();
@@ -660,6 +657,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget buildMap() {
     zoneList.add();
+
     return GoogleMap(
       mapType: MapType.normal,
       myLocationEnabled: true,
