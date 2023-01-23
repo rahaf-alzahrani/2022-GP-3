@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:elfaa/constants.dart';
 import 'package:elfaa/report.dart';
+import 'package:elfaa/screens/admin/admin_alert/admin_alert_page.dart';
 import 'package:elfaa/screens/sg/sg_home/report_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -17,6 +18,9 @@ class _AdminAlertPageState extends State<SGAlert> {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
+
+    AdminAlertPage.newTimestamp = "";
+    AdminAlertPage.lastTimestamp = "";
 
     return Scaffold(
       appBar: AppBar(
@@ -56,80 +60,106 @@ class _AdminAlertPageState extends State<SGAlert> {
                       itemBuilder: ((context, index) {
                         final report = reports[index];
 
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) {
-                                      return ReporteDetail(
-                                          childReport: reports[index],
-                                          isSecurityGuard: true
-                                      );
-                                    }
-                                )
-                            );
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(blurRadius: 10, color: Colors.black12)
-                                  ]
+                        bool showTimestamp = false;
 
+                        AdminAlertPage.newTimestamp = DateFormat("DD/MM/yyyy").format(report.time);
+
+                        if(AdminAlertPage.lastTimestamp != AdminAlertPage.newTimestamp) {
+                          showTimestamp = true;
+                        }
+
+                        AdminAlertPage.lastTimestamp = AdminAlertPage.newTimestamp;
+
+                        return Column(
+                          children: [
+
+                            if(showTimestamp)
+                              SizedBox(
+                                  height: height * 0.08,
+                                  child: Center(
+                                    child: Text(
+                                      DateFormat("DD/MM/yyyy").format(report.time),
+                                      style: Theme.of(context).textTheme.titleLarge,
+                                    ),
+                                  )
                               ),
-                              margin: EdgeInsets.symmetric(vertical: 4),
-                              padding: EdgeInsets.symmetric(
-                                vertical: height * 0.02,
-                              ),
+
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) {
+                                          return ReporteDetail(
+                                              childReport: reports[index],
+                                              isSecurityGuard: true
+                                          );
+                                        }
+                                    )
+                                );
+                              },
                               child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 10),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Icon(Icons.arrow_back_ios_new),
+                                padding: const EdgeInsets.symmetric(horizontal: 10),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Colors.white,
+                                      boxShadow: [
+                                        BoxShadow(blurRadius: 10, color: Colors.black12)
+                                      ]
 
-                                    Row(
+                                  ),
+                                  margin: EdgeInsets.symmetric(vertical: 4),
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: height * 0.02,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 10),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Column(
-                                          crossAxisAlignment: CrossAxisAlignment.end,
+                                        Icon(Icons.arrow_back_ios_new),
+
+                                        Row(
                                           children: [
-                                            Text(
-                                              "بلاغ #${DateFormat("yyyyMMDDhhmmss").format(report.time)}",
-                                              style:
-                                              Theme.of(context).textTheme.subtitle1,
-                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.end,
+                                              children: [
+                                                Text(
+                                                  "بلاغ #${DateFormat("yyyyMMDDhhmmss").format(report.time)}",
+                                                  style:
+                                                  Theme.of(context).textTheme.subtitle1,
+                                                ),
 
+                                                SizedBox(
+                                                  height: height * 0.01,
+                                                ),
+
+                                                Text(
+                                                  DateFormat("dd-MM-yyyy hh:mm aa").format(report.time),
+                                                  style: Theme.of(context).textTheme.caption,
+                                                )
+                                              ],
+                                            ),
                                             SizedBox(
-                                              height: height * 0.01,
+                                              width: width * 0.02,
                                             ),
-
-                                            Text(
-                                              DateFormat("dd-MM-yyyy hh:mm aa").format(report.time),
-                                              style: Theme.of(context).textTheme.caption,
+                                            CircleAvatar(
+                                              backgroundColor: kOrangeColor,
+                                              child: Icon(
+                                                Icons.campaign,
+                                                color: Colors.white,
+                                              ),
                                             )
                                           ],
-                                        ),
-                                        SizedBox(
-                                          width: width * 0.02,
-                                        ),
-                                        CircleAvatar(
-                                          backgroundColor: kOrangeColor,
-                                          child: Icon(
-                                            Icons.campaign,
-                                            color: Colors.white,
-                                          ),
                                         )
                                       ],
-                                    )
-                                  ],
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
+                            )
+                          ],
                         );
                       }));
                 }

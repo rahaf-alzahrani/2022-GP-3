@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:ffi';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:elfaa/screens/Homepage/Home_page.dart';
@@ -22,7 +23,6 @@ class zones {
     //winter wender land
     //bolivard
     "assets/images/parking.png",
-    //  "assets/images/parking.png",
     "assets/images/gate.png",
     "assets/images/china.png",
     "assets/images/italy.png",
@@ -50,7 +50,6 @@ class zones {
     //winter wender land
     //bolivard
     "مواقف السيارات رقم ١",
-    //" مواقف السيارات رقم ٢",
     "بوابة رئيسية رقم ١",
     "دولة الصين ",
     "دولة إيطاليا",
@@ -62,6 +61,32 @@ class zones {
     "دولة اليونان",
     "دولة اليابان",
     "بوابة رقم ٢",
+    //bolivard
+  ];
+  List<bool> criticalZones = [
+    //winter wender land
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    true,
+    true,
+    //winter wender land
+    //bolivard
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
     //bolivard
   ];
   List<LatLng> latLang = [
@@ -77,7 +102,6 @@ class zones {
     //winter wender land
     //bolivard
     LatLng(24.772252, 46.599206),
-    //LatLng(24.779747, 46.599871),
     LatLng(24.773285, 46.599454),
     LatLng(24.773674, 46.600876),
     LatLng(24.774501, 46.600598),
@@ -408,7 +432,11 @@ class zones {
       c_gate2_bb,
     ];
     for (int i = 0; i < zoneName.length; i++) {
-      zoneNames.add({'name': zoneName[i], 'points': zonePoints[i]});
+      zoneNames.add({
+        'name': zoneName[i],
+        'points': zonePoints[i],
+        'criticalZones': criticalZones[i]
+      });
     }
   }
 
@@ -428,7 +456,7 @@ class zones {
       Polygon(
         polygonId: PolygonId("2"),
         points: c_mainGate_W,
-        fillColor: Colors.red.withOpacity(0.2),
+        fillColor: Colors.red,
         strokeColor: Colors.red,
         strokeWidth: 2,
       ),
@@ -473,7 +501,7 @@ class zones {
       Polygon(
         polygonId: PolygonId("7"),
         points: c_gate2_w,
-        fillColor: Colors.red.withOpacity(0.2),
+        fillColor: Colors.red,
         strokeColor: Colors.red,
         strokeWidth: 2,
       ),
@@ -601,7 +629,7 @@ class zones {
       Polygon(
         polygonId: PolygonId("21"),
         points: c_gate2_b,
-        fillColor: ui.Color.fromARGB(255, 255, 0, 0).withOpacity(0.2),
+        fillColor: ui.Color.fromARGB(255, 255, 0, 0),
         strokeColor: ui.Color.fromARGB(255, 255, 0, 0),
         strokeWidth: 2,
       ),

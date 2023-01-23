@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:elfaa/screens/admin/admin_alert/admin_alert_page.dart';
 import 'package:flutter/material.dart';
 import 'package:elfaa/constants.dart';
 import 'package:intl/intl.dart';
@@ -9,7 +10,6 @@ class ProgressReport extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
 
@@ -35,75 +35,104 @@ class ProgressReport extends StatelessWidget {
         centerTitle: true,
         flexibleSpace: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(28),
-                  bottomRight: Radius.circular(28)),
-              color: kPrimaryColor,
-            )),
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(28),
+              bottomRight: Radius.circular(28)),
+          color: kPrimaryColor,
+        )),
       ),
       body: SingleChildScrollView(
         physics: ScrollPhysics(),
         child: Column(
           children: [
-
             SizedBox(height: height * 0.01),
-
             StreamBuilder<List<Map<String, dynamic>>>(
                 stream: reportProgressStream(),
                 builder: (context, snapshot) {
-
                   final progresses = snapshot.data ?? [];
 
                   return ListView.builder(
                       shrinkWrap: true,
                       physics: ScrollPhysics(),
                       itemCount: progresses.length,
-                      itemBuilder: ((context, index) {
+                      itemBuilder: (context, index) {
                         final progress = progresses[index];
 
-                        final Timestamp timestamp = progress['time'] ?? Timestamp.now();
+                        final Timestamp timestamp =
+                            progress['time'] ?? Timestamp.now();
 
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(blurRadius: 10, color: Colors.black12)
-                                ]
+                        bool showTimestamp = false;
 
-                            ),
-                            margin: EdgeInsets.symmetric(vertical: 4),
-                            padding: EdgeInsets.symmetric(
-                              vertical: height * 0.02,
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    progress['action'] ?? "",
-                                    style: Theme.of(context).textTheme.subtitle1,
+                        AdminAlertPage.newTimestamp =
+                            DateFormat("DD/MM/yyyy").format(timestamp.toDate());
+
+                        if (AdminAlertPage.lastTimestamp !=
+                            AdminAlertPage.newTimestamp) {
+                          showTimestamp = true;
+                        }
+
+                        AdminAlertPage.lastTimestamp =
+                            AdminAlertPage.newTimestamp;
+
+                        return Column(
+                          children: [
+                            if (showTimestamp)
+                              SizedBox(
+                                  height: height * 0.07,
+                                  child: Center(
+                                    child: Text(
+                                      DateFormat("DD/MM/yyyy")
+                                          .format(timestamp.toDate()),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleLarge,
+                                    ),
+                                  )),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          blurRadius: 10, color: Colors.black12)
+                                    ]),
+                                margin: EdgeInsets.symmetric(vertical: 4),
+                                padding: EdgeInsets.symmetric(
+                                  vertical: height * 0.02,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 10),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        progress['action'] ?? "",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .subtitle1,
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.01,
+                                      ),
+                                      Text(
+                                        DateFormat("dd-MM-yyyy hh:mm aa")
+                                            .format(timestamp.toDate()),
+                                        style:
+                                            Theme.of(context).textTheme.caption,
+                                      )
+                                    ],
                                   ),
-
-                                  SizedBox(
-                                    height: height * 0.01,
-                                  ),
-
-                                  Text(
-                                    DateFormat("dd-MM-yyyy hh:mm aa").format(timestamp.toDate()),
-                                    style: Theme.of(context).textTheme.caption,
-                                  )
-                                ],
+                                ),
                               ),
-                            ),
-                          ),
+                            )
+                          ],
                         );
-                      }));
-                }
-            )
+                      });
+                })
           ],
         ),
       ),
@@ -111,11 +140,13 @@ class ProgressReport extends StatelessWidget {
   }
 
   Stream<List<Map<String, dynamic>>> reportProgressStream() {
-    return FirebaseFirestore.instance.collection("report")
-        .doc(reportID).collection("progress")
+    return FirebaseFirestore.instance
+        .collection("report")
+        .doc(reportID)
+        .collection("progress")
         .orderBy('time', descending: true)
-        .snapshots().map((querySnapshot) {
-
+        .snapshots()
+        .map((querySnapshot) {
       List<Map<String, dynamic>> progresses = [];
 
       for (QueryDocumentSnapshot documentSnapshot in querySnapshot.docs) {

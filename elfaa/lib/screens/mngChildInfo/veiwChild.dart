@@ -130,13 +130,14 @@ class _viewChildState extends State<viewChild> {
           if (Poly.isPointInPolygon(point, zoneList.zoneNames[i]['points'])) {
             theZoneName = zoneList.zoneNames[i]['name'];
 
-            if (zoneList.zoneNames[i]['name'][0] == "ب" ||
-                zoneList.zoneNames[i]['name'][0] == "م") {
+            if (zoneList.zoneNames[i]['criticalZones']) {
               range_alert.oklDialog(
                 context,
                 "تحذير  ",
-                "انتبه طفلك دخل منطقة محظورة " +
-                    "\"${zoneList.zoneNames[i]['name']}\"",
+                "دخل منطقة محظورة " +
+                    '${widget.childname}' +
+                    "انتبه طفلك" +
+                    "\n\"${zoneList.zoneNames[i]['name']}\"",
               );
             }
           }

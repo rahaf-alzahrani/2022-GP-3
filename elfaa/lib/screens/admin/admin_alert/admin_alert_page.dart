@@ -11,13 +11,20 @@ class AdminAlertPage extends StatefulWidget {
 
   @override
   State<AdminAlertPage> createState() => _AdminAlertPageState();
+
+  static String lastTimestamp = "";
+  static String newTimestamp = "";
 }
+
 
 class _AdminAlertPageState extends State<AdminAlertPage> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
+
+    AdminAlertPage.lastTimestamp = "";
+    AdminAlertPage.newTimestamp = "";
 
     return Scaffold(
       appBar: AppBar(
@@ -58,77 +65,103 @@ class _AdminAlertPageState extends State<AdminAlertPage> {
                     itemBuilder: ((context, index) {
                       final report = reports[index];
 
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) {
-                                      return ReporteDetail(childReport: reports[index]);
-                                  }
-                              )
-                          );
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(blurRadius: 10, color: Colors.black12)
-                                ]
+                      bool showTimestamp = false;
 
+                      AdminAlertPage.newTimestamp = DateFormat("DD/MM/yyyy").format(report.time);
+
+                      if(AdminAlertPage.lastTimestamp != AdminAlertPage.newTimestamp) {
+                        showTimestamp = true;
+                      }
+
+                      AdminAlertPage.lastTimestamp = AdminAlertPage.newTimestamp;
+
+                      return Column(
+                        children: [
+
+                          if(showTimestamp)
+                            SizedBox(
+                                height: height * 0.08,
+                                child: Center(
+                                  child: Text(
+                                    DateFormat("DD/MM/yyyy").format(report.time),
+                                    style: Theme.of(context).textTheme.titleLarge, 
+                                  ),
+                                )
                             ),
-                            margin: EdgeInsets.symmetric(vertical: 4),
-                            padding: EdgeInsets.symmetric(
-                              vertical: height * 0.02,
-                            ),
+
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) {
+                                          return ReporteDetail(childReport: reports[index]);
+                                      }
+                                  )
+                              );
+                            },
                             child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(Icons.arrow_back_ios_new),
+                              padding: const EdgeInsets.symmetric(horizontal: 10),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(blurRadius: 10, color: Colors.black12)
+                                    ]
 
-                                  Row(
+                                ),
+                                margin: EdgeInsets.symmetric(vertical: 4),
+                                padding: EdgeInsets.symmetric(
+                                  vertical: height * 0.02,
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                      Icon(Icons.arrow_back_ios_new),
+
+                                      Row(
                                         children: [
-                                          Text(
-                                            "بلاغ #${DateFormat("yyyyMMDDhhmmss").format(report.time)}",
-                                            style:
-                                            Theme.of(context).textTheme.subtitle1,
-                                          ),
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                "بلاغ #${DateFormat("yyyyMMDDhhmmss").format(report.time)}",
+                                                style:
+                                                Theme.of(context).textTheme.subtitle1,
+                                              ),
 
+                                              SizedBox(
+                                                height: height * 0.01,
+                                              ),
+
+                                              Text(
+                                                DateFormat("dd-MM-yyyy hh:mm aa").format(report.time),
+                                                style: Theme.of(context).textTheme.caption,
+                                              )
+                                            ],
+                                          ),
                                           SizedBox(
-                                            height: height * 0.01,
+                                            width: width * 0.02,
                                           ),
-
-                                          Text(
-                                            DateFormat("dd-MM-yyyy hh:mm aa").format(report.time),
-                                            style: Theme.of(context).textTheme.caption,
+                                          CircleAvatar(
+                                            backgroundColor: kOrangeColor,
+                                            child: Icon(
+                                              Icons.campaign,
+                                              color: Colors.white,
+                                            ),
                                           )
                                         ],
-                                      ),
-                                      SizedBox(
-                                        width: width * 0.02,
-                                      ),
-                                      CircleAvatar(
-                                        backgroundColor: kOrangeColor,
-                                        child: Icon(
-                                          Icons.campaign,
-                                          color: Colors.white,
-                                        ),
                                       )
                                     ],
-                                  )
-                                ],
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
+                        ],
                       );
                     }));
               }
@@ -140,17 +173,21 @@ class _AdminAlertPageState extends State<AdminAlertPage> {
   }
 
   Stream<List<Report>> reportStream() {
-    return FirebaseFirestore.instance.collection("report")
-        .orderBy('time', descending: true)
-        .snapshots().map((querySnapshot) {
+    try {
+      return FirebaseFirestore.instance.collection("report")
+          .orderBy('time', descending: true)
+          .snapshots().map((querySnapshot) {
+        List<Report> reports = [];
 
-      List<Report> reports = [];
+        for (QueryDocumentSnapshot documentSnapshot in querySnapshot.docs) {
+          reports.add(Report.fromMap(documentSnapshot));
+        }
 
-      for (QueryDocumentSnapshot documentSnapshot in querySnapshot.docs) {
-        reports.add(Report.fromMap(documentSnapshot));
-      }
-
-      return reports;
-    });
+        return reports;
+      });
+    } on FirebaseException catch (e) {
+      print(e.toString());
+      return Stream.empty();
+    }
   }
 }

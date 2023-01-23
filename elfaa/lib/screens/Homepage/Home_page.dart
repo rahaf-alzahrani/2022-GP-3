@@ -257,11 +257,13 @@ class _HomePageState extends State<HomePage> {
           continue;
         }
         Map newData = child.value as Map;
+
         // showDialog(
         //   context: context,
         //   builder: (ctx) => AlertDialog(
         //     title: const Text("Alert Dialog Box"),
-        //     content: Text("You have raised a Alert Dialog Box" + "$newData"),
+        //     content:
+        //         Text("You have raised a Alert Dialog Box" + "${child.key}"),
         //     actions: <Widget>[
         //       TextButton(
         //         onPressed: () {
@@ -297,27 +299,25 @@ class _HomePageState extends State<HomePage> {
             radius: 100,
             fillColor: Colors.blue.withOpacity(0.2),
             strokeWidth: 0);
+        final Point point = Point(x: newData['lat'], y: newData['long']);
+        zoneList.addZonesName();
+        for (int i = 0; i < zoneList.zoneName.length; i++) {
+          if (Poly.isPointInPolygon(point, zoneList.zoneNames[i]['points'])) {
+            theZoneName = zoneList.zoneNames[i]['name'];
 
-        setState(() {
-          final Point point = Point(x: newData['lat'], y: newData['long']);
-          zoneList.addZonesName();
-          for (int i = 0; i < zoneList.zoneName.length; i++) {
-            if (Poly.isPointInPolygon(point, zoneList.zoneNames[i]['points'])) {
-              theZoneName = zoneList.zoneNames[i]['name'];
-
-              if (zoneList.zoneNames[i]['name'][0] == "ب" ||
-                  zoneList.zoneNames[i]['name'][0] == "م") {
-                range_alert.oklDialog(
-                  context,
-                  "تحذير  ",
-                  "انتبه طفلك   " +
-                      child.value.toString() +
-                      "دخل منطقة محظورة " +
-                      "\"${zoneList.zoneNames[i]['name']}\"",
-                );
-              }
+            if (zoneList.zoneNames[i]['criticalZones']) {
+              range_alert.oklDialog(
+                context,
+                "تحذير  ",
+                "دخل منطقة محظورة " +
+                    '${child.key}' +
+                    "انتبه طفلك" +
+                    "\n\"${zoneList.zoneNames[i]['name']}\"",
+              );
             }
           }
+        }
+        setState(() {
           markersMap[child.key!] = marker;
           circlesMap[child.key!] = circle;
         });
