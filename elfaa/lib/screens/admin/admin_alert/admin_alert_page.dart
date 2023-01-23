@@ -84,7 +84,7 @@ class _AdminAlertPageState extends State<AdminAlertPage> {
                                 child: Center(
                                   child: Text(
                                     DateFormat("DD/MM/yyyy").format(report.time),
-                                    style: Theme.of(context).textTheme.titleLarge,
+                                    style: Theme.of(context).textTheme.titleLarge, 
                                   ),
                                 )
                             ),

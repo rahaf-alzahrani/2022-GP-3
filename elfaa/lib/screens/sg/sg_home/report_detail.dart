@@ -436,7 +436,7 @@ class _ReporteDetailState extends State<ReporteDetail> {
 
               InkWell(
                 onTap: () async {
-                  if(widget.childReport.status != "Lost") return;
+                  if(widget.childReport.status != "ضائع") return;
 
                   setState(() {
                     isLoading = true;
@@ -445,7 +445,7 @@ class _ReporteDetailState extends State<ReporteDetail> {
                   await FirebaseFirestore.instance
                       .collection('report')
                       .doc(widget.childReport.id)
-                      .update({"status": "Found"});
+                      .update({"status": "تم العثور عليه"});
 
                   await FirebaseFirestore.instance
                       .collection('users')
