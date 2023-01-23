@@ -11,13 +11,13 @@ import 'package:intl/intl.dart';
 import '../../Homepage/HomelistBox.dart';
 
 class ReporteDetail extends StatefulWidget {
-
   final Report childReport;
   final bool isSecurityGuard;
 
   const ReporteDetail({
     Key? key,
-    required this.childReport, this.isSecurityGuard = false,
+    required this.childReport,
+    this.isSecurityGuard = false,
   });
 
   @override
@@ -39,19 +39,22 @@ class _ReporteDetailState extends State<ReporteDetail> {
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery
-        .of(context)
-        .size
-        .height;
-    final double width = MediaQuery
-        .of(context)
-        .size
-        .width;
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
 
     final color = _getColor(widget.childReport.status ?? "");
 
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.white,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+          )
+        ],
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -63,19 +66,15 @@ class _ReporteDetailState extends State<ReporteDetail> {
         centerTitle: true,
         flexibleSpace: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(28),
-                  bottomRight: Radius.circular(28)),
-              color: kPrimaryColor,
-            )),
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(28),
+              bottomRight: Radius.circular(28)),
+          color: kPrimaryColor,
+        )),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
-            height: height * 0.05,
-          ),
-
           Container(
             height: 0.3 * height,
             width: 90 * width,
@@ -88,11 +87,9 @@ class _ReporteDetailState extends State<ReporteDetail> {
               ),
             ),
           ),
-
           SizedBox(
             height: height * 0.03,
           ),
-
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -100,168 +97,151 @@ class _ReporteDetailState extends State<ReporteDetail> {
                 height: height * 0.024,
                 width: width * 0.05,
               ),
-
               Expanded(
                 child: Container(
                     child: Padding(
-                      padding: const EdgeInsets.only(right: 5.0),
-                      child: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-                        stream: childStream(widget.childReport),
-                        builder: (context, snapshot) {
-                          final child = snapshot.data;
+                  padding: const EdgeInsets.only(right: 5.0),
+                  child: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                      stream: childStream(widget.childReport),
+                      builder: (context, snapshot) {
+                        final child = snapshot.data;
 
-                          final Timestamp birthday = child?['birthday'] ?? Timestamp.now();
+                        final Timestamp birthday =
+                            child?['birthday'] ?? Timestamp.now();
 
-                          final age = ((DateTime.now().difference(birthday.toDate()).inDays) / 365).floor();
+                        final age = ((DateTime.now()
+                                    .difference(birthday.toDate())
+                                    .inDays) /
+                                365)
+                            .floor();
 
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    widget.childReport.childName!,
-                                    style: TextStyle(
-                                      color:
-                                      Color.fromARGB(255, 41, 41, 32),
-                                      fontSize: 18,
-                                    ),
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  widget.childReport.childName!,
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 41, 41, 32),
+                                    fontSize: 18,
                                   ),
-                                  SizedBox(
-                                    width: 5,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  "اسم الطفل :",
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 41, 41, 32),
+                                    fontSize: 18,
                                   ),
-                                  Text(
-                                    "اسم الطفل :",
-                                    style: TextStyle(
-                                      color:
-                                      Color.fromARGB(255, 41, 41, 32),
-                                      fontSize: 18,
-                                    ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 5),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  child?['gender'] ?? "",
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 41, 41, 32),
+                                    fontSize: 18,
                                   ),
-                                ],
-                              ),
-
-                              SizedBox(height: 5),
-
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    child?['gender'] ?? "",
-                                    style: TextStyle(
-                                      color:
-                                      Color.fromARGB(255, 41, 41, 32),
-                                      fontSize: 18,
-                                    ),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  "الجنس: ",
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 41, 41, 32),
+                                    fontSize: 18,
                                   ),
-                                  SizedBox(
-                                    width: 5,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 5),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  child?['height'].toString() ?? "",
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 41, 41, 32),
+                                    fontSize: 18,
                                   ),
-                                  Text(
-                                    "الجنس: ",
-                                    style: TextStyle(
-                                      color:
-                                      Color.fromARGB(255, 41, 41, 32),
-                                      fontSize: 18,
-                                    ),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  "الطول: ",
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 41, 41, 32),
+                                    fontSize: 18,
                                   ),
-                                ],
-                              ),
-
-                              SizedBox(height: 5),
-
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    child?['height'].toString() ?? "",
-                                    style: TextStyle(
-                                      color:
-                                      Color.fromARGB(255, 41, 41, 32),
-                                      fontSize: 18,
-                                    ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 5),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  "$age ${age == 1 ? 'سنة' : 'سنوات'}",
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 41, 41, 32),
+                                    fontSize: 18,
                                   ),
-                                  SizedBox(
-                                    width: 5,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  "العمر: ",
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 41, 41, 32),
+                                    fontSize: 18,
                                   ),
-                                  Text(
-                                    "الطول: ",
-                                    style: TextStyle(
-                                      color:
-                                      Color.fromARGB(255, 41, 41, 32),
-                                      fontSize: 18,
-                                    ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 5),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  DateFormat("dd/MM/yyyy hh:mm aa")
+                                      .format(widget.childReport.time),
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 41, 41, 32),
+                                    fontSize: 18,
                                   ),
-                                ],
-                              ),
-
-                              SizedBox(height: 5),
-
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    "$age ${age == 1 ? 'سنة' : 'سنوات'}",
-                                    style: TextStyle(
-                                      color:
-                                      Color.fromARGB(255, 41, 41, 32),
-                                      fontSize: 18,
-                                    ),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  "وقت البلاغ:",
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 41, 41, 32),
+                                    fontSize: 18,
                                   ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    "العمر: ",
-                                    style: TextStyle(
-                                      color:
-                                      Color.fromARGB(255, 41, 41, 32),
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                              SizedBox(height: 5),
-
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    DateFormat("dd/MM/yyyy hh:mm aa").format(widget.childReport.time),
-                                    style: TextStyle(
-                                      color:
-                                      Color.fromARGB(255, 41, 41, 32),
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    "وقت البلاغ:",
-                                    style: TextStyle(
-                                      color:
-                                      Color.fromARGB(255, 41, 41, 32),
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          );
-                        }
-                      ),
-                    )),
+                                ),
+                              ],
+                            ),
+                          ],
+                        );
+                      }),
+                )),
               ),
-
               SizedBox(
                 width: 20,
               ),
-
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Container(
@@ -273,29 +253,24 @@ class _ReporteDetailState extends State<ReporteDetail> {
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
-                    child: networkImg(widget.childReport.imageUrl!,
-                        width, height),
+                    child:
+                        networkImg(widget.childReport.imageUrl!, width, height),
                   ),
                 ),
               ),
-
               SizedBox(
                 width: 20,
               ),
-
             ],
           ),
-
           SizedBox(
             height: height * 0.02,
           ),
-
           SizedBox(
             width: width * 0.9,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-
                 Text(
                   'حالة البلاغ',
                   style: TextStyle(
@@ -303,14 +278,12 @@ class _ReporteDetailState extends State<ReporteDetail> {
                       fontSize: 15,
                       fontWeight: FontWeight.normal),
                 ),
-
                 SizedBox(
                   width: height * 0.01,
                 ),
-
                 Container(
                   height: height * 0.04,
-                  width: height * 0.10,
+                  width: height * 0.15,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -328,10 +301,7 @@ class _ReporteDetailState extends State<ReporteDetail> {
                           height: 10,
                           width: 10,
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: color
-                          )
-                      ),
+                              shape: BoxShape.circle, color: color)),
                     ],
                   ),
                   decoration: BoxDecoration(
@@ -341,13 +311,11 @@ class _ReporteDetailState extends State<ReporteDetail> {
               ],
             ),
           ),
-
           Expanded(
             child: SizedBox(
               height: height * 0.02,
             ),
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -382,14 +350,12 @@ class _ReporteDetailState extends State<ReporteDetail> {
                                   stream: phoneNumberStream(widget.childReport),
                                   builder: (context, snapshot) {
                                     final String? phoneNumber = snapshot.data;
-                                    return Text(
-                                        phoneNumber ?? "رقم التواصل",
+                                    return Text(phoneNumber ?? "رقم التواصل",
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold));
-                                  }
-                              ),
+                                  }),
                             ],
                           ),
                         ),
@@ -402,41 +368,35 @@ class _ReporteDetailState extends State<ReporteDetail> {
                   width: width * 0.425,
                   child: Center(
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-
-                          SizedBox(width: 20),
-
-                          Text(
-                            'اتصل بالوالد',
-                            style: TextStyle(
-                                color: Color(0xff919296),
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
-                          ),
-
-                          SizedBox(width: 20),
-
-                          Icon(
-                            Icons.phone,
-                            size: 16,
-                            color: Colors.grey,
-                          )
-                        ],
-                      )),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(width: 20),
+                      Text(
+                        'اتصل بالوالد',
+                        style: TextStyle(
+                            color: kPrimaryColor,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(width: 20),
+                      Icon(
+                        Icons.phone,
+                        size: 16,
+                        color: kPrimaryColor,
+                      )
+                    ],
+                  )),
                   decoration: BoxDecoration(
-                      color: Color(0xFFFFFAD0),
+                      color: klightBlueColor,
                       borderRadius: BorderRadius.circular(32)),
                 ),
               ),
-
               SizedBox(
                 width: width * 0.05,
               ),
-
               InkWell(
                 onTap: () async {
-                  if(widget.childReport.status != "ضائع") return;
+                  if (widget.childReport.status != "ضائع") return;
 
                   setState(() {
                     isLoading = true;
@@ -464,9 +424,9 @@ class _ReporteDetailState extends State<ReporteDetail> {
                   await FirebaseFirestore.instance
                       .collection('report')
                       .doc(widget.childReport.id)
-                      .collection('progress').add({
-                    "action": "${widget.isSecurityGuard
-                        ? "حارس الأمن" : "المشرف"}"
+                      .collection('progress')
+                      .add({
+                    "action": "${widget.isSecurityGuard ? "حارس الأمن" : "المشرف"}"
                         " (name: ${user['name']}, رقم جواله: ${user['phoneNo']}) غيّر حالة البلاغ إلى تم العثور على الطفل",
                     "time": Timestamp.now()
                   });
@@ -474,29 +434,29 @@ class _ReporteDetailState extends State<ReporteDetail> {
                   await FirebaseFirestore.instance
                       .collection('notification')
                       .add({
-                    "message": "البلاغ #${DateFormat("yyyyMMDDhhmmss")
-                        .format(widget.childReport.time)} تم تحديث حالته إلى تم العثور عليه",
+                    "message":
+                        "البلاغ #${DateFormat("yyyyMMDDhhmmss").format(widget.childReport.time)} تم تحديث حالته إلى تم العثور عليه",
                     "newStatus": "تم العثور عليه",
                     "time": Timestamp.now()
                   });
 
                   Navigator.pop(context);
-                  },
+                },
                 child: Container(
                   height: height * 0.07,
                   width: width * 0.425,
                   child: Center(
                       child: isLoading
                           ? CircularProgressIndicator(
-                        color: Colors.white,
-                      )
+                              color: Colors.white,
+                            )
                           : Text(
-                        'تم العثور عليه',
-                        style: TextStyle(
-                            color: Color(0xFFFFFFFF),
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      )),
+                              'تم العثور عليه',
+                              style: TextStyle(
+                                  color: Color(0xFFFFFFFF),
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold),
+                            )),
                   decoration: BoxDecoration(
                       color: Color(0xFF429EB2),
                       borderRadius: BorderRadius.circular(32)),
@@ -504,16 +464,14 @@ class _ReporteDetailState extends State<ReporteDetail> {
               ),
             ],
           ),
-
-          if(!widget.isSecurityGuard)
+          if (!widget.isSecurityGuard)
             SizedBox(
               height: height * 0.03,
             ),
-
-          if(!widget.isSecurityGuard)
+          if (!widget.isSecurityGuard)
             InkWell(
               onTap: () async {
-                if(widget.childReport.status != "ضائع") return;
+                if (widget.childReport.status != "ضائع") return;
 
                 setState(() {
                   isLoading = true;
@@ -524,10 +482,7 @@ class _ReporteDetailState extends State<ReporteDetail> {
                 await FirebaseFirestore.instance
                     .collection('report')
                     .doc(widget.childReport.id)
-                    .update({
-                      "status": "مغلق",
-                      "finderID": _user!.uid
-                    });
+                    .update({"status": "مغلق", "finderID": _user!.uid});
 
                 final user = await FirebaseFirestore.instance
                     .collection('users')
@@ -537,16 +492,18 @@ class _ReporteDetailState extends State<ReporteDetail> {
                 await FirebaseFirestore.instance
                     .collection('report')
                     .doc(widget.childReport.id)
-                    .collection('progress').add({
-                  "action": "المشرف (${user['name']}, رقم جواله: ${user['phoneNo']}) أغلق البلاغ",
+                    .collection('progress')
+                    .add({
+                  "action":
+                      "المشرف (${user['name']}, رقم جواله: ${user['phoneNo']}) أغلق البلاغ",
                   "time": Timestamp.now()
                 });
 
                 await FirebaseFirestore.instance
                     .collection('notification')
                     .add({
-                  "message": "البلاغ #${DateFormat("yyyyMMDDhhmmss")
-                      .format(widget.childReport.time)} تم تحديث حالته إلى مغلق عن طريق المشرف",
+                  "message":
+                      "البلاغ #${DateFormat("yyyyMMDDhhmmss").format(widget.childReport.time)} تم تحديث حالته إلى مغلق عن طريق المشرف",
                   "newStatus": "مغلق",
                   "time": Timestamp.now()
                 });
@@ -559,26 +516,24 @@ class _ReporteDetailState extends State<ReporteDetail> {
                 child: Center(
                     child: isLoading
                         ? CircularProgressIndicator(
-                      color: Colors.white,
-                    )
+                            color: Colors.white,
+                          )
                         : Text(
-                      "إغلاق البلاغ",
-                      style: TextStyle(
-                          color: Color(0xFF9C0000),
-                          fontSize: 15,
-                          fontWeight: FontWeight.normal),
-                    )),
+                            "إغلاق البلاغ",
+                            style: TextStyle(
+                                color: Color(0xFF9C0000),
+                                fontSize: 15,
+                                fontWeight: FontWeight.normal),
+                          )),
                 decoration: BoxDecoration(
                     color: Color(0xFFFFEEEE),
                     borderRadius: BorderRadius.circular(32)),
               ),
             ),
-
           SizedBox(height: 10),
           SizedBox(
             height: height * 0.03,
           ),
-
         ],
       ),
     );
@@ -595,9 +550,11 @@ class _ReporteDetailState extends State<ReporteDetail> {
   }
 
   Stream<String> phoneNumberStream(Report report) {
-    return FirebaseFirestore.instance.collection("users")
+    return FirebaseFirestore.instance
+        .collection("users")
         .where('userID', isEqualTo: report.parentID)
-        .snapshots().map((querySnapshot) {
+        .snapshots()
+        .map((querySnapshot) {
       String phoneNumber = "No Contact Info";
 
       for (QueryDocumentSnapshot documentSnapshot in querySnapshot.docs) {
@@ -609,12 +566,14 @@ class _ReporteDetailState extends State<ReporteDetail> {
   }
 
   Stream<DocumentSnapshot<Map<String, dynamic>>> childStream(Report report) {
-    return FirebaseFirestore.instance.collection("users")
+    return FirebaseFirestore.instance
+        .collection("users")
         .doc(report.parentID)
         .collection('children')
         .doc(report.childrenId!)
-        .snapshots().map((documentSnapshot) {
-          return documentSnapshot;
+        .snapshots()
+        .map((documentSnapshot) {
+      return documentSnapshot;
     });
   }
 }
