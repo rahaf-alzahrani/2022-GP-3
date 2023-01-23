@@ -507,13 +507,13 @@ class _ReporteDetailState extends State<ReporteDetail> {
 
           if(!widget.isSecurityGuard)
             SizedBox(
-              height: height * 0.02,
+              height: height * 0.03,
             ),
 
           if(!widget.isSecurityGuard)
             InkWell(
               onTap: () async {
-                if(widget.childReport.status != "Lost") return;
+                if(widget.childReport.status != "ضائع") return;
 
                 setState(() {
                   isLoading = true;
@@ -575,28 +575,6 @@ class _ReporteDetailState extends State<ReporteDetail> {
             ),
 
           SizedBox(height: 10),
-
-          // TextButton(
-          //   onPressed: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(
-          //         builder: (context) => ProgressReport(
-          //             reportID: widget.childReport.id!
-          //         ),
-          //       ),
-          //     );
-          //   },
-          //   child: Text(
-          //       'View report progress',
-          //       style: TextStyle(
-          //           color: Colors.blue,
-          //           fontSize: 18,
-          //           fontWeight: FontWeight.normal
-          //       )
-          //   ),
-          // ),
-
           SizedBox(
             height: height * 0.03,
           ),
