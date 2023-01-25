@@ -1,6 +1,6 @@
 # Elfaa - إلفاء
 <p align="center">
-   <img src="https://github.com/rahaf-alzahrani/2022-GP-3/blob/main/elfaa/assets/images/elfaa.gif?raw=true" alt="Elfaa logo" height="200" width="200">
+   <img src="https://github.com/rahaf-alzahrani/2022-GP-3/blob/main/elfaa/assets/images/elfaa.gif?raw=true" alt="Elfaa logo" height="auto" width="auto">
 </p>
 
 <h2>💡About Elfaa - إلفاء </h2>
