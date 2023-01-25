@@ -17,6 +17,9 @@ class AdminProfile extends StatefulWidget {
 }
 
 class _AdminProfileState extends State<AdminProfile> {
+  String? _name;
+  String? _email;
+  String? _phoneNumber;
   bool tappedYes = false;
   bool editable = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -26,9 +29,12 @@ class _AdminProfileState extends State<AdminProfile> {
 
   Future<void> getCurrentUser() async {
     final FirebaseAuth _auth = FirebaseAuth.instance;
-    final User? user = await _auth.currentUser;
     if (!mounted) return;
-    final uid ="ZwXgzHC5u9e8iHDYoKOU19Iaag62";
+
+
+    /// PAste here admin uid if you create newOne,
+    final uid = "kO6Sz0aT2JWvBxMGRivDxUSofFR2";
+
     await FirebaseFirestore.instance
         .collection('users')
         .doc(uid)
@@ -38,6 +44,8 @@ class _AdminProfileState extends State<AdminProfile> {
       name.text = snapshot['name'];
       email.text = snapshot['email'];
       phoneNo.text = snapshot['phoneNo'].toString();
+
+    print(name);
     });
   }
 
@@ -65,6 +73,7 @@ class _AdminProfileState extends State<AdminProfile> {
               return null;
             },
             onSaved: (String? value) {
+              _name = value;
             },
           ),
         ));
@@ -95,6 +104,7 @@ class _AdminProfileState extends State<AdminProfile> {
               return null;
             },
             onSaved: (String? value) {
+              _email = value!;
             },
           ),
         ));
@@ -127,6 +137,7 @@ class _AdminProfileState extends State<AdminProfile> {
               return null;
             },
             onSaved: (String? value) {
+              _phoneNumber = value!;
             },
           ),
         ));
@@ -322,6 +333,30 @@ class _AdminProfileState extends State<AdminProfile> {
                         ),
                       );
                     },
+                  ),
+                ),
+                SizedBox(height: ScreenHeight * 0.09),
+                Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: Row(
+                    children: [
+                      Switch(
+                        value: isSwitched,
+                        onChanged: (value) {
+                          setState(() {
+                            isSwitched = value;
+                            print(isSwitched);
+                          });
+                        },
+                        splashRadius: 50.0,
+                        activeTrackColor: Color.fromARGB(255, 132, 198, 190),
+                        activeColor: color1,
+                      ),
+                      Text(
+                        "خاصية إشعار المسافة",
+                        style: TextStyle(color: kPrimaryColor, fontSize: 20),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: ScreenHeight * 0.09),

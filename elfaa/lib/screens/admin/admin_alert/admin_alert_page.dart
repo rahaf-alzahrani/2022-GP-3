@@ -23,9 +23,6 @@ class _AdminAlertPageState extends State<AdminAlertPage> {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
 
-    AdminAlertPage.lastTimestamp = "";
-    AdminAlertPage.newTimestamp = "";
-
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -65,103 +62,77 @@ class _AdminAlertPageState extends State<AdminAlertPage> {
                     itemBuilder: ((context, index) {
                       final report = reports[index];
 
-                      bool showTimestamp = false;
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) {
+                                      return ReporteDetail(childReport: reports[index]);
+                                  }
+                              )
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(blurRadius: 10, color: Colors.black12)
+                                ]
 
-                      AdminAlertPage.newTimestamp = DateFormat("DD/MM/yyyy").format(report.time);
-
-                      if(AdminAlertPage.lastTimestamp != AdminAlertPage.newTimestamp) {
-                        showTimestamp = true;
-                      }
-
-                      AdminAlertPage.lastTimestamp = AdminAlertPage.newTimestamp;
-
-                      return Column(
-                        children: [
-
-                          if(showTimestamp)
-                            SizedBox(
-                                height: height * 0.08,
-                                child: Center(
-                                  child: Text(
-                                    DateFormat("DD/MM/yyyy").format(report.time),
-                                    style: Theme.of(context).textTheme.titleLarge, 
-                                  ),
-                                )
                             ),
-
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) {
-                                          return ReporteDetail(childReport: reports[index]);
-                                      }
-                                  )
-                              );
-                            },
+                            margin: EdgeInsets.symmetric(vertical: 4),
+                            padding: EdgeInsets.symmetric(
+                              vertical: height * 0.02,
+                            ),
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(blurRadius: 10, color: Colors.black12)
-                                    ]
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(Icons.arrow_back_ios_new),
 
-                                ),
-                                margin: EdgeInsets.symmetric(vertical: 4),
-                                padding: EdgeInsets.symmetric(
-                                  vertical: height * 0.02,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  Row(
                                     children: [
-                                      Icon(Icons.arrow_back_ios_new),
-
-                                      Row(
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.end,
                                         children: [
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.end,
-                                            children: [
-                                              Text(
-                                                "بلاغ #${DateFormat("yyyyMMDDhhmmss").format(report.time)}",
-                                                style:
-                                                Theme.of(context).textTheme.subtitle1,
-                                              ),
-
-                                              SizedBox(
-                                                height: height * 0.01,
-                                              ),
-
-                                              Text(
-                                                DateFormat("dd-MM-yyyy hh:mm aa").format(report.time),
-                                                style: Theme.of(context).textTheme.caption,
-                                              )
-                                            ],
+                                          Text(
+                                            "بلاغ #${DateFormat("yyyyMMDDhhmmss").format(report.time)}",
+                                            style:
+                                            Theme.of(context).textTheme.subtitle1,
                                           ),
+
                                           SizedBox(
-                                            width: width * 0.02,
+                                            height: height * 0.01,
                                           ),
-                                          CircleAvatar(
-                                            backgroundColor: kOrangeColor,
-                                            child: Icon(
-                                              Icons.campaign,
-                                              color: Colors.white,
-                                            ),
+
+                                          Text(
+                                            DateFormat("dd-MM-yyyy hh:mm aa").format(report.time),
+                                            style: Theme.of(context).textTheme.caption,
                                           )
                                         ],
+                                      ),
+                                      SizedBox(
+                                        width: width * 0.02,
+                                      ),
+                                      CircleAvatar(
+                                        backgroundColor: kOrangeColor,
+                                        child: Icon(
+                                          Icons.campaign,
+                                          color: Colors.white,
+                                        ),
                                       )
                                     ],
-                                  ),
-                                ),
+                                  )
+                                ],
                               ),
                             ),
                           ),
-                        ],
+                        ),
                       );
                     }));
               }
@@ -173,21 +144,17 @@ class _AdminAlertPageState extends State<AdminAlertPage> {
   }
 
   Stream<List<Report>> reportStream() {
-    try {
-      return FirebaseFirestore.instance.collection("report")
-          .orderBy('time', descending: true)
-          .snapshots().map((querySnapshot) {
-        List<Report> reports = [];
+    return FirebaseFirestore.instance.collection("report")
+        .orderBy('time', descending: true)
+        .snapshots().map((querySnapshot) {
 
-        for (QueryDocumentSnapshot documentSnapshot in querySnapshot.docs) {
-          reports.add(Report.fromMap(documentSnapshot));
-        }
+      List<Report> reports = [];
 
-        return reports;
-      });
-    } on FirebaseException catch (e) {
-      print(e.toString());
-      return Stream.empty();
-    }
+      for (QueryDocumentSnapshot documentSnapshot in querySnapshot.docs) {
+        reports.add(Report.fromMap(documentSnapshot));
+      }
+
+      return reports;
+    });
   }
 }

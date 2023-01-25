@@ -282,7 +282,7 @@ packages:
     source: hosted
     version: "14.2.1"
   firebase_messaging_platform_interface:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: firebase_messaging_platform_interface
       url: "https://pub.dartlang.org"

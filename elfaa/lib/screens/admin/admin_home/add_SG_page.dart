@@ -220,6 +220,7 @@ class _AddSecurityGuardState extends State<AddSecurityGuard> {
                         setState(() {
                           userID = res.user!.uid;
                         });
+                         print("User ID  ::: $userID");
                         //add user details
                         addUserDetails(name.text.trim(), email.text.trim(),
                             phoneNo.text.trim(), userID);

@@ -1,7 +1,6 @@
-import       'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:elfaa/constants.dart';
 import 'package:elfaa/report.dart';
-import 'package:elfaa/screens/admin/admin_alert/admin_alert_page.dart';
 import 'package:elfaa/screens/admin/admin_home/add_SG_page.dart';
 import 'package:elfaa/screens/sg/sg_home/report_detail.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,9 +23,6 @@ class _AdminHomePageState extends State<SGHomePage> {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
 
-    AdminAlertPage.newTimestamp = "";
-    AdminAlertPage.lastTimestamp = "";
-
     return Scaffold(
       body: Column(
         children: [
@@ -48,112 +44,85 @@ class _AdminHomePageState extends State<SGHomePage> {
                           shrinkWrap: true,
                           physics: ScrollPhysics(),
                           itemCount: reports.length,
-                          itemBuilder: (context, index) {
+                          itemBuilder: ((context, index) {
                             final report = reports[index];
 
-                            bool showTimestamp = false;
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) {
+                                          return ReporteDetail(
+                                            childReport: reports[index],
+                                            isSecurityGuard: true,
+                                          );
+                                        }
+                                    )
+                                );
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 10),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Colors.white,
+                                      boxShadow: [
+                                        BoxShadow(blurRadius: 10, color: Colors.black12)
+                                      ]
 
-                            AdminAlertPage.newTimestamp = DateFormat("DD/MM/yyyy").format(report.time);
-
-                            if(AdminAlertPage.lastTimestamp != AdminAlertPage.newTimestamp) {
-                              showTimestamp = true;
-                            }
-
-                            AdminAlertPage.lastTimestamp = AdminAlertPage.newTimestamp;
-
-                            return Column(
-                              children: [
-
-                                if(showTimestamp)
-                                  SizedBox(
-                                      height: height * 0.05,
-                                      child: Center(
-                                        child: Text(
-                                          DateFormat("DD/MM/yyyy").format(report.time),
-                                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                                        ),
-                                      )
                                   ),
-
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) {
-                                              return ReporteDetail(
-                                                childReport: reports[index],
-                                                isSecurityGuard: true,
-                                              );
-                                            }
-                                        )
-                                    );
-                                  },
+                                  margin: EdgeInsets.symmetric(vertical: 4),
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: height * 0.02,
+                                  ),
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(10),
-                                          color: Colors.white,
-                                          boxShadow: [
-                                            BoxShadow(blurRadius: 10, color: Colors.black12)
-                                          ]
+                                    padding: EdgeInsets.symmetric(horizontal: 10),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Icon(Icons.arrow_back_ios_new),
 
-                                      ),
-                                      margin: EdgeInsets.symmetric(vertical: 4),
-                                      padding: EdgeInsets.symmetric(
-                                        vertical: height * 0.02,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsets.symmetric(horizontal: 10),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        Row(
                                           children: [
-                                            Icon(Icons.arrow_back_ios_new),
-
-                                            Row(
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.end,
                                               children: [
-                                                Column(
-                                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                                  children: [
-                                                    Text(
-                                                      "بلاغ #${DateFormat("yyyyMMDDhhmmss").format(report.time)}",
-                                                      style:
-                                                      Theme.of(context).textTheme.subtitle1,
-                                                    ),
-
-                                                    SizedBox(
-                                                      height: height * 0.01,
-                                                    ),
-
-                                                    Text(
-                                                      DateFormat("dd-MM-yyyy hh:mm aa").format(report.time),
-                                                      style: Theme.of(context).textTheme.caption,
-                                                    )
-                                                  ],
+                                                Text(
+                                                  "Report #${DateFormat("yyyyMMDDhhmmss").format(report.time)}",
+                                                  style:
+                                                  Theme.of(context).textTheme.subtitle1,
                                                 ),
+
                                                 SizedBox(
-                                                  width: width * 0.02,
+                                                  height: height * 0.01,
                                                 ),
-                                                CircleAvatar(
-                                                  backgroundColor: kOrangeColor,
-                                                  child: Icon(
-                                                    Icons.campaign,
-                                                    color: Colors.white,
-                                                  ),
+
+                                                Text(
+                                                  DateFormat("dd-MM-yyyy hh:mm aa").format(report.time),
+                                                  style: Theme.of(context).textTheme.caption,
                                                 )
                                               ],
+                                            ),
+                                            SizedBox(
+                                              width: width * 0.02,
+                                            ),
+                                            CircleAvatar(
+                                              backgroundColor: kOrangeColor,
+                                              child: Icon(
+                                                Icons.campaign,
+                                                color: Colors.white,
+                                              ),
                                             )
                                           ],
-                                        ),
-                                      ),
+                                        )
+                                      ],
                                     ),
                                   ),
-                                )
-                              ],
+                                ),
+                              ),
                             );
-                          }
-                      );
+                          }));
                     }
                 )
               ],

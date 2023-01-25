@@ -20,10 +20,11 @@ class AdminHomePage extends StatefulWidget {
 
 class _AdminHomePageState extends State<AdminHomePage> {
   //const HomePage({super.key});
-  final uid ="ZwXgzHC5u9e8iHDYoKOU19Iaag62";
+
+  /// PAste here admin uid if you create newOne,
+  final uid ="kO6Sz0aT2JWvBxMGRivDxUSofFR2";
 
   Future<void> getCurrentUserr() async {
-    final FirebaseAuth _auth = FirebaseAuth.instance;
     if (!mounted) return;
     await FirebaseFirestore.instance
         .collection('users')
@@ -39,12 +40,12 @@ class _AdminHomePageState extends State<AdminHomePage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    getSecList();
   }
 
   @override
   void initState() {
     getCurrentUserr();
-     getSecList();
     super.initState();
   }
 
@@ -57,64 +58,6 @@ class _AdminHomePageState extends State<AdminHomePage> {
             Widget>[
           _buildHeader(),
 
-          // _secList.length == 0
-          //     ? Padding(
-          //         padding:
-          //             const EdgeInsets.only(left: 25.0, right: 25, bottom: 10),
-          //         child: Container(
-          //           height: height * 0.2,
-          //           decoration: BoxDecoration(
-          //               boxShadow: [
-          //                 BoxShadow(
-          //                     color: Color(0xff484848).withOpacity(.3),
-          //                     offset: Offset(0, 4),
-          //                     blurRadius: 8)
-          //               ],
-          //               borderRadius: BorderRadius.circular(30),
-          //               image: DecorationImage(
-          //                   image: AssetImage("assets/images/empty.jpeg"),
-          //                   fit: BoxFit.cover)),
-          //         ),
-          //       )
-          //     : _secList.length == 1
-          //         ? Padding(
-          //             padding: const EdgeInsets.only(
-          //                 left: 25.0, right: 25, bottom: 10),
-          //             child: Container(
-          //               height: height * 0.2,
-          //               width: MediaQuery.of(context).size.width,
-          //               decoration: BoxDecoration(
-          //                   boxShadow: [
-          //                     BoxShadow(
-          //                         color: Color(0xff484848).withOpacity(.3),
-          //                         offset: Offset(0, 4),
-          //                         blurRadius: 8)
-          //                   ],
-          //                   borderRadius: BorderRadius.circular(30),
-          //                   image: DecorationImage(
-          //                       image: AssetImage("assets/images/oneChild.jpg"),
-          //                       fit: BoxFit.cover)),
-          //             ),
-          //           )
-          //         : Padding(
-          //             padding: const EdgeInsets.only(
-          //                 left: 25.0, right: 25, bottom: 10),
-          //             child: Container(
-          //               height: height * 0.2,
-          //               width: MediaQuery.of(context).size.width,
-          //               decoration: BoxDecoration(
-          //                   boxShadow: [
-          //                     BoxShadow(
-          //                         color: Color(0xff484848).withOpacity(.3),
-          //                         offset: Offset(0, 4),
-          //                         blurRadius: 8)
-          //                   ],
-          //                   borderRadius: BorderRadius.circular(30),
-          //                   image: DecorationImage(
-          //                       image: AssetImage("assets/images/MainMap.jpg"),
-          //                       fit: BoxFit.cover)),
-          //             ),
-          //           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -156,16 +99,16 @@ class _AdminHomePageState extends State<AdminHomePage> {
           ),
           _secList.length == 0
               ? Padding(
-                  padding: const EdgeInsets.only(top: 5.0, left: 30),
-                  child: Container(
-                    height: height * 0.35,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("assets/images/noChildren.png"),
-                            fit: BoxFit.cover)),
-                  ),
-                )
+            padding: const EdgeInsets.only(top: 5.0, left: 30),
+            child: Container(
+              height: height * 0.35,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/noChildren.png"),
+                      fit: BoxFit.cover)),
+            ),
+          )
               : RefreshIndicator(onRefresh: refresh, child: _buildList()),
         ]),
       ),
@@ -275,7 +218,6 @@ class _AdminHomePageState extends State<AdminHomePage> {
     final FirebaseAuth _auth = FirebaseAuth.instance;
     final User? user = await _auth.currentUser;
     if (!mounted) return;
-    final userid = user!.uid;
 
     var data = await FirebaseFirestore.instance
         .collection('users')
