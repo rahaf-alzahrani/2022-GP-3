@@ -1,7 +1,8 @@
 import 'package:elfaa/screens/Homepage/HomelistBox.dart';
 import 'package:elfaa/screens/Homepage/childrenList.dart';
+import 'package:elfaa/screens/notificationPage/Note.dart';
 import 'package:elfaa/screens/notificationPage/NotlistBox.dart';
-import 'package:elfaa/screens/notificationPage/noteList.dart';
+
 import 'package:flutter/material.dart';
 import 'package:elfaa/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,8 +12,7 @@ import 'package:intl/intl.dart';
 final DateTime now = DateTime.now();
 final DateFormat formatter = DateFormat('yyyy-MM-dd');
 final String formatted = formatter.format(now);
-List<Object> _childrenList = [];
-List<Object> _notList = [];
+List<Note> _childrenList = [];
 
 class NotePage extends StatefulWidget {
   @override
@@ -26,7 +26,7 @@ class _NotePageState extends State<NotePage> {
     super.dispose();
   }
 
-  int index = 1;
+  int index = 0;
 
   //const NotePage({super.key});
   final Color color1 = Color(0xFF429EB2);
@@ -69,30 +69,42 @@ class _NotePageState extends State<NotePage> {
                     ),
                   ),
                 )
-              : list()),
+              : _buildList()),
     );
   }
 
-  Widget list() {
-    return ListView.builder(
-        itemCount: _childrenList.length,
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          //if (index == 0)
-          //return Null;
-          // else
-          return NotlistBox(_childrenList[index] as childrenList, _notList);
-        });
-  }
-
+  Widget list() => ListView.builder(
+      itemCount: _childrenList.length,
+      shrinkWrap: true,
+      itemBuilder: (context, index) {
+        return NotlistBox(_childrenList[index]);
+      });
   void didChangeDependencies() {
     super.didChangeDependencies();
     getChildrenList();
-    getChildrenList2();
+    // getChildrenList2();
   }
 
   void initState() {
     super.initState();
+  }
+
+  Container _buildList() {
+    final GlobalKey<ScaffoldState> _ScaffoldKey = GlobalKey<ScaffoldState>();
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+    return Container(
+      height: height * 0.65,
+      width: double.infinity,
+      child: Stack(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 10, left: 10, top: 10),
+            child: SizedBox(child: list()),
+          )
+        ],
+      ),
+    );
   }
 
   Future<void> getChildrenList() async {
@@ -101,40 +113,18 @@ class _NotePageState extends State<NotePage> {
     if (!mounted) return;
     final userid = user!.uid;
 
-    var data = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(userid)
-        .collection('children')
-        .orderBy('birthday', descending: true)
-        .get();
+    var data =
+        await FirebaseFirestore.instance.collection('notification').get();
+    // .orderBy('time', descending: true)
+    List<Note> child = data.docs.map((e) => Note.fromMap(e)).toList();
+    child = child.where((element) => element.parentID == userid).toList();
     if (!mounted) return;
-
+    print("==========================================");
+    print(child);
     setState(() {
       if (!mounted) return;
 
-      _childrenList =
-          List.from(data.docs.map((doc) => childrenList.fromSnapshot(doc)));
-    });
-  }
-
-  Future<void> getChildrenList2() async {
-    final FirebaseAuth _auth = FirebaseAuth.instance;
-    final User? user = await _auth.currentUser;
-    if (!mounted) return;
-    final userid = user!.uid;
-
-    var data = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(userid)
-        .collection('notificationForChild')
-        .get();
-
-    if (!mounted) return;
-    setState(() {
-      if (!mounted) return;
-      // if (data.docs.length != 0) {
-      _notList = List.from(data.docs.map((doc) => noteList.fromSnapshot(doc)));
-      // }
+      _childrenList = child;
     });
   }
 }
