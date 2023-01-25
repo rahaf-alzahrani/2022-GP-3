@@ -68,24 +68,10 @@ dependencies:
   firebase_messaging: ^14.2.1
   flutter_local_notifications: ^13.0.0
   location: ^4.3.0 
-  
+  firebase_messaging_platform_interface: ^4.2.10
 
 dependency_overrides:
     firebase_core_platform_interface: 4.5.2
-    # firebase_messaging_platform_interface: ^4.2.10
-    # firebase_crashlytics_platform_interface: ^3.3.11
-    # cloud_firestore_platform_interface: ^5.10.1
-    # firebase_auth_platform_interface: ^6.11.7
-    # firebase_storage_platform_interface: ^4.1.26
-    # cloud_functions_platform_interface: ^5.1.26
-    # firebase_analytics_platform_interface: ^3.3.17
-    # firebase_remote_config_platform_interface: ^1.1.29
-    # firebase_dynamic_links_platform_interface: ^0.2.3+26
-    # firebase_performance_platform_interface: ^0.1.1+29
-    # firebase_app_installations: ^0.2.1+8
-
-
-
 
 dev_dependencies:
   flutter_test:

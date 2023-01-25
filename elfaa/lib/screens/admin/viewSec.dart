@@ -1,17 +1,16 @@
 import 'dart:async';
-import 'package:elfaa/screens/Homepage/Home_page.dart';
-import 'package:elfaa/zones.dart';
+
+import 'package:elfaa/screens/admin/widget/edit_security.dart';
 import 'package:flutter/material.dart';
 import 'package:elfaa/constants.dart';
 import 'package:flutter/services.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:elfaa/alert_dialog.dart';
 import 'package:elfaa/screens/Homepage/navPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:intl/intl.dart' hide TextDirection;
 import 'package:fluttertoast/fluttertoast.dart';
 
+import '../../zones.dart';
 import 'admin_home/admin_home_page.dart';
 
 class viewSec extends StatefulWidget {
@@ -34,13 +33,6 @@ class viewSec extends StatefulWidget {
 }
 
 class _viewSecState extends State<viewSec> {
-  static Circle circle = Circle(
-    circleId: CircleId('currentCircle'),
-    center: LatLng(24.769924, 46.646101),
-    radius: 15,
-    fillColor: Colors.blue.shade100.withOpacity(0.5),
-    strokeColor: Colors.blue.shade100.withOpacity(0.1),
-  );
   late zones zoneList;
 
   Future<void> addZones() async {
@@ -81,11 +73,16 @@ class _viewSecState extends State<viewSec> {
 
   @override
   Widget build(BuildContext context) {
+
+
     TextEditingController _secName =
-        TextEditingController(text: widget.secName);
-    TextEditingController _email = TextEditingController(text: widget.email);
+    TextEditingController.fromValue(
+        TextEditingValue(text: widget.secName));
+    TextEditingController _email = TextEditingController.fromValue(
+        TextEditingValue(text: widget.email));
     TextEditingController _phoneNo =
-        TextEditingController(text: widget.phoneNo);
+    TextEditingController.fromValue(
+        TextEditingValue(text: widget.phoneNo));
     final String secName = widget.secName;
     //Responsiviness variables
     final double ScreenHeight = MediaQuery.of(context).size.height;
@@ -102,7 +99,7 @@ class _viewSecState extends State<viewSec> {
             .updateEmail(newEmail)
             .then(
               (value) => message = 'Success',
-            )
+        )
             .catchError((onError) => message = 'error');
         return message;
       }
@@ -145,9 +142,101 @@ class _viewSecState extends State<viewSec> {
             child: Column(
               children: <Widget>[
                 SizedBox(height: ScreenHeight * 0.030),
-                _buildName(secName: _secName),
-                _buildEmail(email: _email),
-                _buildPhoneNumber(phone: _phoneNo),
+
+                ////Namee
+              Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
+                    child: TextFormField(
+                       enabled: true,
+                      textAlign: TextAlign.right,
+                      controller: _secName,
+                      decoration: InputDecoration(
+                          labelText: 'الاسم', hintText: 'أدخل الاسم', helperText: ""),
+                      validator: (String? value) {
+                        if (value!.isEmpty) {
+                          return 'الحقل مطلوب';
+                        } else if (value.length == 1) {
+                          return " يجب أن يحتوي الاسم أكثر من حرف على الأقل";
+                        } else if (RegExp(r"/^[a-zA-Z\s]*$/").hasMatch(value)) {
+                          return 'أدخل اسم يحتوي على أحرف فقط';
+                        } else if (_secName.text.split(' ').length < 3) {
+                          return 'يجب ادخال الاسم الثلاثي';
+                        }
+                        return null;
+                      },
+                      // onSaved: (String? value) {
+                      //   _name = value;
+                      // },
+                    ),
+                  )),
+                // /eemail
+                Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
+                      child: TextFormField(
+                        enabled: true,
+                        textAlign: TextAlign.right,
+                        controller: _phoneNo,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
+                        decoration: InputDecoration(
+                            labelText: 'رقم الجوال', hintText: '05xxxxxxxx', helperText: ""),
+                        validator: (String? value) {
+                          if (value!.isEmpty) {
+                            return 'الحقل مطلوب';
+                          } else if (value.length != 10) {
+                            return "الرقم ليس مكوّن من 10 خانات";
+                          } else if (!value.startsWith('05', 0)) {
+                            return "ادخل رقم جوال يبدأ ب05";
+                          }
+                          return null;
+                        },
+                        // onSaved: (String? value) {
+                        //   _phoneNumber = value!;
+                        // },
+                      ),
+                    )),
+                // phone lumberrr.
+
+              Directionality(
+                  textDirection: TextDirection.rtl,
+
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
+                    child: TextFormField(
+                      enabled: true,
+                      keyboardType: TextInputType.emailAddress,
+                      textAlign: TextAlign.right,
+                      controller: _email,
+                      decoration: InputDecoration(
+                          labelText: 'البريد الإلكتروني',
+                          hintText: 'أدخل بريدك الإلكتروني',
+                          helperText: ""),
+                      validator: (String? value) {
+                        if (value!.isEmpty) {
+                          return 'الحقل مطلوب';
+                        }
+                        if (!RegExp(
+                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                            .hasMatch(value)) {
+                          return 'أدخل بريد إلكتروني صالح';
+                        }
+                        return null;
+                      },
+                      // onSaved: (String? value) {
+                      //   _email = value!;
+                      // },
+                    ),
+                  )),
+
+
+
+
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: ElevatedButton.icon(
@@ -187,50 +276,18 @@ class _viewSecState extends State<viewSec> {
                       style: TextStyle(color: kPrimaryColor, fontSize: 17),
                     ),
                     onPressed: () async {
-                      if (!_formKey.currentState!.validate()) {
-                        return;
-                      }
-                      final action2 = await AlertDialogs.yesCancelDialog(
-                          context,
-                          'تعديل معلومات حارس الأمن ',
-                          'هل أنت متأكد من حفظ التعديل؟');
-                      if (!mounted) return;
-                      FocusManager.instance.primaryFocus?.unfocus();
-                      if (action2 == DialogsAction.yes) {
-                        setState(() => tappedYes = true);
-                        try {
-                          await FirebaseFirestore.instance
-                              .collection('users')
-                              .doc(widget.secID)
-                              .update({
-                            'name': _secName.text,
-                            'phoneNo': _phoneNo.text,
-                            'email': _email.text
-                          }).then((value) {
-                            resetEmail(_email.text.toString());
-                          });
-                          if (!mounted) return;
-                          if (!mounted) return;
-                          Fluttertoast.showToast(
-                              msg: "تم تعديل البيانات بنجاح",
-                              toastLength: Toast.LENGTH_SHORT,
-                              gravity: ToastGravity.BOTTOM,
-                              timeInSecForIosWeb: 1,
-                              backgroundColor: Colors.lightGreen,
-                              textColor: Colors.black,
-                              fontSize: 16.0);
-                        } catch (e) {
-                          Fluttertoast.showToast(
-                              msg: "حدث خطأ ما",
-                              toastLength: Toast.LENGTH_SHORT,
-                              gravity: ToastGravity.BOTTOM,
-                              timeInSecForIosWeb: 1,
-                              backgroundColor: Colors.red,
-                              textColor: Colors.black,
-                              fontSize: 16.0);
-                        }
-                        _formKey.currentState!.save();
-                      }
+
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                         return  EditSecurityGuard(
+
+
+                           password: "${widget.password}",
+                           secID: "${widget.secID}",
+                           phoneNo: "${widget.phoneNo}",
+                           secName: "${widget.secName}",
+                           email: "${widget.email}",
+                         );
+                      }));
                     },
                   ),
                 ),
@@ -263,24 +320,23 @@ class _viewSecState extends State<viewSec> {
                         setState(() => tappedYes = true);
                         if (!mounted) return;
                         //delete child here
-                        final docChild = FirebaseFirestore.instance
-                            .collection('users')
-                            .doc(widget.secID);
 
-                        var adminId = FirebaseAuth.instance.currentUser;
+ /// PAste here admin uid if you create newOne,
+                        var adminId = "kO6Sz0aT2JWvBxMGRivDxUSofFR2";
 
                         FirebaseAuth.instance.signInWithEmailAndPassword(
                             email: widget.email, password: widget.password);
                         var clientId = FirebaseAuth.instance.currentUser;
-                        if (adminId?.uid != clientId) {
-                          FirebaseAuth.instance.currentUser
+                        if (adminId != clientId?.uid) {
+                      clientId
                               ?.delete()
                               .then((value) {
-                            docChild.delete().then((value) {
+                        FirebaseFirestore.instance
+                            .collection('users').doc(widget.secID.toString()).delete().then((value) {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => AdminHomePage()));
+                                      builder: (context) => NavPage(code:1)));
                             });
                           });
                         }
@@ -315,95 +371,3 @@ class _viewSecState extends State<viewSec> {
   }
 }
 
-Widget _buildName({required TextEditingController secName}) {
-  return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
-        child: TextFormField(
-          //  enabled: editable,
-          textAlign: TextAlign.right,
-          controller: secName,
-          decoration: InputDecoration(
-              labelText: 'الاسم', hintText: 'أدخل الاسم', helperText: ""),
-          validator: (String? value) {
-            if (value!.isEmpty) {
-              return 'الحقل مطلوب';
-            } else if (value.length == 1) {
-              return " يجب أن يحتوي الاسم أكثر من حرف على الأقل";
-            } else if (RegExp(r"/^[a-zA-Z\s]*$/").hasMatch(value)) {
-              return 'أدخل اسم يحتوي على أحرف فقط';
-            } else if (secName.text.split(' ').length < 3) {
-              return 'يجب ادخال الاسم الثلاثي';
-            }
-            return null;
-          },
-          // onSaved: (String? value) {
-          //   _name = value;
-          // },
-        ),
-      ));
-}
-
-Widget _buildEmail({required TextEditingController email}) {
-  return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
-        child: TextFormField(
-          autofocus: true,
-          keyboardType: TextInputType.emailAddress,
-          textAlign: TextAlign.right,
-          controller: email,
-          decoration: InputDecoration(
-              labelText: 'البريد الإلكتروني',
-              hintText: 'أدخل بريدك الإلكتروني',
-              helperText: ""),
-          validator: (String? value) {
-            if (value!.isEmpty) {
-              return 'الحقل مطلوب';
-            }
-            if (!RegExp(
-                    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                .hasMatch(value)) {
-              return 'أدخل بريد إلكتروني صالح';
-            }
-            return null;
-          },
-          // onSaved: (String? value) {
-          //   _email = value!;
-          // },
-        ),
-      ));
-}
-
-Widget _buildPhoneNumber({required TextEditingController phone}) {
-  return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
-        child: TextFormField(
-          textAlign: TextAlign.right,
-          controller: phone,
-          keyboardType: TextInputType.number,
-          inputFormatters: <TextInputFormatter>[
-            FilteringTextInputFormatter.digitsOnly
-          ],
-          decoration: InputDecoration(
-              labelText: 'رقم الجوال', hintText: '05xxxxxxxx', helperText: ""),
-          validator: (String? value) {
-            if (value!.isEmpty) {
-              return 'الحقل مطلوب';
-            } else if (value.length != 10) {
-              return "الرقم ليس مكوّن من 10 خانات";
-            } else if (!value.startsWith('05', 0)) {
-              return "ادخل رقم جوال يبدأ ب05";
-            }
-            return null;
-          },
-          // onSaved: (String? value) {
-          //   _phoneNumber = value!;
-          // },
-        ),
-      ));
-}

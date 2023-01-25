@@ -24,7 +24,6 @@ class _SignInScreenState extends State<SignInScreen> {
   bool obscured = true;
   Icon icon = Icon(Icons.visibility, color: Colors.grey);
   FocusNode focus = FocusNode();
-  bool isLoading = false;
 
   final _formKey = GlobalKey<FormState>();
   @override
@@ -77,73 +76,73 @@ class _SignInScreenState extends State<SignInScreen> {
                       child: Row(children: [
                         Expanded(
                             child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              ParentSelected = false;
-                              SecuritySelected = true;
-                            });
-                          },
-                          child: Container(
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(screenWidth),
-                                    bottomLeft: Radius.circular(screenWidth)),
-                                color: SecuritySelected
-                                    ? kPrimaryColor
-                                    : Colors.white,
-                              ),
-                              child: Text('الأمن',
-                                  style: TextStyle(
-                                      color: SecuritySelected
-                                          ? Colors.white
-                                          : kdarkColor))),
-                        )),
+                              onTap: () {
+                                setState(() {
+                                  ParentSelected = false;
+                                  SecuritySelected = true;
+                                });
+                              },
+                              child: Container(
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(screenWidth),
+                                        bottomLeft: Radius.circular(screenWidth)),
+                                    color: SecuritySelected
+                                        ? kPrimaryColor
+                                        : Colors.white,
+                                  ),
+                                  child: Text('الأمن',
+                                      style: TextStyle(
+                                          color: SecuritySelected
+                                              ? Colors.white
+                                              : kdarkColor))),
+                            )),
                         Expanded(
                             child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              ParentSelected = true;
-                              SecuritySelected = false;
-                            });
-                          },
-                          child: Container(
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(screenWidth),
-                                    bottomRight: Radius.circular(screenWidth)),
-                                color: ParentSelected
-                                    ? kPrimaryColor
-                                    : Colors.white,
-                              ),
-                              child: Text('الوالدين',
-                                  style: TextStyle(
-                                      color: ParentSelected
-                                          ? Colors.white
-                                          : kdarkColor))),
-                        )),
+                              onTap: () {
+                                setState(() {
+                                  ParentSelected = true;
+                                  SecuritySelected = false;
+                                });
+                              },
+                              child: Container(
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(screenWidth),
+                                        bottomRight: Radius.circular(screenWidth)),
+                                    color: ParentSelected
+                                        ? kPrimaryColor
+                                        : Colors.white,
+                                  ),
+                                  child: Text('الوالدين',
+                                      style: TextStyle(
+                                          color: ParentSelected
+                                              ? Colors.white
+                                              : kdarkColor))),
+                            )),
                       ])),
                   SizedBox(height: ScreenHeight * 0.070),
                   ParentSelected
                       ? ParentLogin(
-                          email: email,
-                          ScreenHeight: ScreenHeight,
-                          focus: focus,
-                          pass: pass,
-                          obscured: obscured,
-                          icon: icon,
-                          formKey: _formKey,
-                          authProvider: authProvider)
+                      email: email,
+                      ScreenHeight: ScreenHeight,
+                      focus: focus,
+                      pass: pass,
+                      obscured: obscured,
+                      icon: icon,
+                      formKey: _formKey,
+                      authProvider: authProvider)
                       : SecurityLogin(
-                          email: email,
-                          ScreenHeight: ScreenHeight,
-                          focus: focus,
-                          pass: pass,
-                          obscured: obscured,
-                          icon: icon,
-                          formKey: _formKey,
-                          authProvider: authProvider)
+                      email: email,
+                      ScreenHeight: ScreenHeight,
+                      focus: focus,
+                      pass: pass,
+                      obscured: obscured,
+                      icon: icon,
+                      formKey: _formKey,
+                      authProvider: authProvider)
                 ],
               ),
             ),
@@ -156,11 +155,11 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget logoWidget(String imageName) {
     return Center(
         child: Image.asset(
-      imageName,
-      fit: BoxFit.fill,
-      width: 150,
-      height: 150,
-    ));
+          imageName,
+          fit: BoxFit.fill,
+          width: 150,
+          height: 150,
+        ));
   }
 }
 
@@ -200,7 +199,7 @@ class ParentLogin extends StatelessWidget {
                 controller: email,
                 decoration: const InputDecoration(
                   suffixIcon:
-                      Icon(Icons.email_outlined, color: Color(0xFFFD8601)),
+                  Icon(Icons.email_outlined, color: Color(0xFFFD8601)),
                   labelText: "البريد الإلكتروني",
                   hintText: "أدخل بريدك الإلكتروني",
                 ),
@@ -210,7 +209,7 @@ class ParentLogin extends StatelessWidget {
                   if (value!.isEmpty || email.text.trim() == "") {
                     return "الحقل مطلوب";
                   } else if (!RegExp(
-                          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                       .hasMatch(value)) {
                     return 'أدخل بريد إلكتروني صالح';
                   }
@@ -230,20 +229,20 @@ class ParentLogin extends StatelessWidget {
                 decoration: InputDecoration(
                   suffixIcon: focus.hasFocus
                       ? IconButton(
-                          icon: icon,
-                          onPressed: () {
-                            // setState(() {
-                            //   obscured = !obscured;
-                            //   if (obscured == true) {
-                            //     icon = Icon(Icons.visibility,
-                            //         color: Colors.grey);
-                            //   } else {
-                            //     icon = Icon(Icons.visibility_off,
-                            //         color: Colors.grey);
-                            //   }
-                            // });
-                          },
-                        )
+                    icon: icon,
+                    onPressed: () {
+                      // setState(() {
+                      //   obscured = !obscured;
+                      //   if (obscured == true) {
+                      //     icon = Icon(Icons.visibility,
+                      //         color: Colors.grey);
+                      //   } else {
+                      //     icon = Icon(Icons.visibility_off,
+                      //         color: Colors.grey);
+                      //   }
+                      // });
+                    },
+                  )
                       : Icon(Icons.lock_outline, color: Color(0xFFFD8601)),
                   labelText: "كلمة المرور",
                   hintText: "أدخل كلمة المرور",
@@ -379,7 +378,7 @@ class SecurityLogin extends StatelessWidget {
                 controller: email,
                 decoration: const InputDecoration(
                   suffixIcon:
-                      Icon(Icons.email_outlined, color: Color(0xFFFD8601)),
+                  Icon(Icons.email_outlined, color: Color(0xFFFD8601)),
                   labelText: "البريد الإلكتروني",
                   hintText: "أدخل بريدك الإلكتروني",
                 ),
@@ -389,7 +388,7 @@ class SecurityLogin extends StatelessWidget {
                   if (value!.isEmpty || email.text.trim() == "") {
                     return "الحقل مطلوب";
                   } else if (!RegExp(
-                          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                       .hasMatch(value)) {
                     return 'أدخل بريد إلكتروني صالح';
                   }
@@ -409,20 +408,20 @@ class SecurityLogin extends StatelessWidget {
                 decoration: InputDecoration(
                   suffixIcon: focus.hasFocus
                       ? IconButton(
-                          icon: icon,
-                          onPressed: () {
-                            // setState(() {
-                            //   obscured = !obscured;
-                            //   if (obscured == true) {
-                            //     icon = Icon(Icons.visibility,
-                            //         color: Colors.grey);
-                            //   } else {
-                            //     icon = Icon(Icons.visibility_off,
-                            //         color: Colors.grey);
-                            //   }
-                            // });
-                          },
-                        )
+                    icon: icon,
+                    onPressed: () {
+                      // setState(() {
+                      //   obscured = !obscured;
+                      //   if (obscured == true) {
+                      //     icon = Icon(Icons.visibility,
+                      //         color: Colors.grey);
+                      //   } else {
+                      //     icon = Icon(Icons.visibility_off,
+                      //         color: Colors.grey);
+                      //   }
+                      // });
+                    },
+                  )
                       : Icon(Icons.lock_outline, color: Color(0xFFFD8601)),
                   labelText: "كلمة المرور",
                   hintText: "أدخل كلمة المرور",
