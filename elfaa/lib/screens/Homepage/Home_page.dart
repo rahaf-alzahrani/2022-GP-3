@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:elfaa/screens/Homepage/HomelistBox.dart';
+import 'package:elfaa/screens/Homepage/createQR.dart';
 import 'package:elfaa/screens/mngChildInfo/addChild.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -430,14 +431,14 @@ class _HomePageState extends State<HomePage> {
                         ]),
                     child: IconButton(
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => QRPage()),
-                        // );
-                        notification().showNotification(
-                            title: "Layan",
-                            body: "mlzbdbdzfeht",
-                            payload: "csadv");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => createQR()),
+                        );
+                        // notification().showNotification(
+                        //     title: "Layan",
+                        //     body: "mlzbdbdzfeht",
+                        //     payload: "csadv");
                       },
                       icon: Icon(Icons.qr_code, size: 20),
                       color: Colors.white,

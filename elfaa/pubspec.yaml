@@ -45,6 +45,7 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   font_awesome_flutter: ^10.2.1
   file_picker: ^5.2.1
+  qr_flutter: ^4.0.0
   blurrycontainer: ^1.0.2
   point_in_polygon: ^1.0.0
   fluttertoast: ^8.1.1
