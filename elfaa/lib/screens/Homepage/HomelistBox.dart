@@ -13,9 +13,11 @@ class HomelistBox extends StatelessWidget {
   Map<String, Map> childsLocations;
   Map<String, Marker> markersMap;
   zones zoneList;
-  var theZoneName = "";
 
   String updateZone() {
+    zoneList.add();
+    zoneList.addZonesName();
+    var theZoneName = "";
     if (childsLocations[_childlist.childID]!['lat'] != 0) {
       Point point = Point(
           x: childsLocations[_childlist.childID]!['lat'],
@@ -23,8 +25,7 @@ class HomelistBox extends StatelessWidget {
 
       for (int i = 0; i < zoneList.zoneName.length; i++) {
         if (Poly.isPointInPolygon(point, zoneList.zoneNames[i]!['points'])) {
-          theZoneName = zoneList.zoneNames[i][!'name'];
-          return theZoneName;
+          theZoneName = zoneList.zoneNames[i]!['name'];
         }
       }
     }
