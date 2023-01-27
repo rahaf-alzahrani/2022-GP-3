@@ -24,7 +24,7 @@ class NavPage extends StatefulWidget {
 
 class _NavPageState extends State<NavPage> {
   final navigationKey = GlobalKey<CurvedNavigationBarState>();
-  final screens = [EditProfilePage(), ReportPage(), NotePage(), HomePage()];
+  final screens = [EditProfilePage(), ReportPage(), Notepage(), HomePage()];
 
   final screensForSG = [
     SGProfile(),
