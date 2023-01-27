@@ -2,17 +2,47 @@ import 'package:elfaa/screens/Homepage/childrenList.dart';
 import 'package:elfaa/screens/mngChildInfo/veiwChild.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:point_in_polygon/point_in_polygon.dart';
+
+import '../../zones.dart';
 
 class HomelistBox extends StatelessWidget {
-  final childrenList _childlist;
+  childrenList _childlist;
+  Map<String, Map> childsLocations;
   Map<String, Marker> markersMap;
+  late zones zoneList;
+  Map theZoneName = {};
 
-  HomelistBox(this._childlist, this.markersMap);
+  Future<void> addZones() async {
+    zoneList = zones();
+    zoneList.LoadData();
+  }
+
+  void initState() {
+    addZones();
+    final Point point = Point(
+        x: childsLocations[_childlist.childID]!["lat"],
+        y: childsLocations[_childlist.childID]!["lat"]);
+    for (int i = 0; i < zoneList.zoneName.length; i++) {
+      if (Poly.isPointInPolygon(point, zoneList.zoneNames[i]['points'])) {
+        theZoneName = {
+          "childId": _childlist.childID,
+          "zoneName": zoneList.zoneNames[i]['name']
+        };
+        print(
+            "===============================================================================================");
+        print(theZoneName);
+      }
+    }
+  }
+
+  HomelistBox(this._childlist, this.markersMap, this.childsLocations);
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _ScaffoldKey = GlobalKey<ScaffoldState>();
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
+
     return Padding(
         padding: const EdgeInsets.only(bottom: 15, left: 18, right: 18, top: 1),
         child: InkWell(
@@ -92,9 +122,9 @@ class HomelistBox extends StatelessWidget {
                                 //top: 0.01,
                                 //bottom: 0.1
                               ),
-                              // child: Text("${_childlist.childID}",
-                              //     style: TextStyle(
-                              //         fontSize: 16, color: Colors.grey)),
+                              child: Text("${theZoneName}",
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.grey)),
                             ),
                             markersMap.containsKey(_childlist.childID)
                                 ? SizedBox()
@@ -186,6 +216,7 @@ networkImg(String childImage, double ScreenWidth, double ScreenHeight) {
     );
   } catch (error) {}
 }
+
 //const childrenList({
   //  Key? key,
     //required this.childImagePath,

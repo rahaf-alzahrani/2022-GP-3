@@ -279,6 +279,11 @@ class _HomePageState extends State<HomePage> {
         //     ],
         //   ),
         // );
+
+        childsLocations[child.key!] = {
+          "lat": newData["lat"],
+          "long": newData["long"]
+        };
         if (newData["lat"].toInt() == 0 && newData["long"].toInt() == 0) {
           if (markersMap.containsKey(child.key!)) {
             setState(() {
@@ -559,10 +564,14 @@ class _HomePageState extends State<HomePage> {
       itemCount: _childrenList.length,
       shrinkWrap: true,
       itemBuilder: (context, index) {
-        return HomelistBox(_childrenList[index] as childrenList, markersMap);
+        //print(childsLocations);
+        return HomelistBox(
+            _childrenList[index] as childrenList, markersMap, childsLocations);
       });
 
   Map<String, Marker> markersMap = {};
+  Map<String, Map> childsLocations = {};
+
   DatabaseReference topRef = FirebaseDatabase.instance.ref("devices");
 
   Map<String, Circle> circlesMap = {};
@@ -593,6 +602,12 @@ class _HomePageState extends State<HomePage> {
           FirebaseDatabase.instance.ref("devices/${doc.id}");
       DataSnapshot temp = await ref.get();
       Map deviceData = temp.value as Map;
+
+      childsLocations[_childrenList.last.childID!] = {
+        "lat": deviceData["lat"],
+        "long": deviceData["long"]
+      };
+
       if (deviceData["lat"].toInt() == 0 && deviceData["long"].toInt() == 0) {
         continue;
       }
