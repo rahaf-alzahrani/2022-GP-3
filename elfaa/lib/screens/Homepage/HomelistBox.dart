@@ -7,36 +7,30 @@ import 'package:point_in_polygon/point_in_polygon.dart';
 import '../../zones.dart';
 
 class HomelistBox extends StatelessWidget {
+  HomelistBox(
+      this._childlist, this.markersMap, this.childsLocations, this.zoneList);
   childrenList _childlist;
   Map<String, Map> childsLocations;
   Map<String, Marker> markersMap;
-  late zones zoneList;
-  Map theZoneName = {};
+  zones zoneList;
+  var theZoneName = "";
 
-  Future<void> addZones() async {
-    zoneList = zones();
-    zoneList.LoadData();
-  }
+  String updateZone() {
+    if (childsLocations[_childlist.childID]!['lat'] != 0) {
+      Point point = Point(
+          x: childsLocations[_childlist.childID]!['lat'],
+          y: childsLocations[_childlist.childID]!['long']);
 
-  void initState() {
-    addZones();
-    final Point point = Point(
-        x: childsLocations[_childlist.childID]!["lat"],
-        y: childsLocations[_childlist.childID]!["lat"]);
-    for (int i = 0; i < zoneList.zoneName.length; i++) {
-      if (Poly.isPointInPolygon(point, zoneList.zoneNames[i]['points'])) {
-        theZoneName = {
-          "childId": _childlist.childID,
-          "zoneName": zoneList.zoneNames[i]['name']
-        };
-        print(
-            "===============================================================================================");
-        print(theZoneName);
+      for (int i = 0; i < zoneList.zoneName.length; i++) {
+        if (Poly.isPointInPolygon(point, zoneList.zoneNames[i]!['points'])) {
+          theZoneName = zoneList.zoneNames[i][!'name'];
+          return theZoneName;
+        }
       }
     }
+    return theZoneName;
   }
 
-  HomelistBox(this._childlist, this.markersMap, this.childsLocations);
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _ScaffoldKey = GlobalKey<ScaffoldState>();
@@ -122,7 +116,7 @@ class HomelistBox extends StatelessWidget {
                                 //top: 0.01,
                                 //bottom: 0.1
                               ),
-                              child: Text("${theZoneName}",
+                              child: Text("${updateZone()}",
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.grey)),
                             ),

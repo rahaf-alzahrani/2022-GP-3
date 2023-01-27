@@ -388,7 +388,7 @@ class _viewChildState extends State<viewChild> {
                                   borderRadius: BorderRadius.circular(10)),
                               child: theZoneName == ""
                                   ? Text(
-                                      "المنطقة غير محددة" + "$theZoneName",
+                                      "المنطقة غير محددة",
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 20,

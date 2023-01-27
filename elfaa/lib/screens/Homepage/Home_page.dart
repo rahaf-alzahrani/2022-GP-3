@@ -565,8 +565,9 @@ class _HomePageState extends State<HomePage> {
       shrinkWrap: true,
       itemBuilder: (context, index) {
         //print(childsLocations);
-        return HomelistBox(
-            _childrenList[index] as childrenList, markersMap, childsLocations);
+
+        return HomelistBox(_childrenList[index] as childrenList, markersMap,
+            childsLocations, zoneList);
       });
 
   Map<String, Marker> markersMap = {};
