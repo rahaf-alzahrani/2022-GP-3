@@ -10,7 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart' hide TextDirection;
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
+import 'package:firebase_database/firebase_database.dart';
 
 class editChild extends StatefulWidget {
   const editChild(
@@ -254,7 +254,14 @@ class _editChildState extends State<editChild> {
                 SizedBox(
                   width: ScreenWidth,
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        String? newDeviceId = await openDeviceIdDialog();
+                        if (newDeviceId != null) {
+                          isDeviceVerify = true;
+                        } else {
+                          isDeviceVerify = false;
+                        }
+                      },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF429EB2),
                           textStyle: const TextStyle(
@@ -282,32 +289,59 @@ class _editChildState extends State<editChild> {
                                   isLoading = true;
                                   isProcessing = true;
                                 });
+                                if (controllerDEVICE.text.isNotEmpty &&
+                                    isDeviceVerify) {
+                                  await FirebaseFirestore.instance
+                                      .collection("devices")
+                                      .where("childID",
+                                          isEqualTo: widget.childID)
+                                      .get()
+                                      .then((value) {
+                                    value.docs.forEach((element) async {
+                                      await FirebaseFirestore.instance
+                                          .collection("devices")
+                                          .doc(element.id)
+                                          .update({
+                                        "deviceID": controllerDEVICE.text
+                                      });
+                                    });
+                                  });
+                                  DatabaseReference ref = FirebaseDatabase
+                                      .instance
+                                      .ref("devices/${widget.childID}");
+                                  await ref.update({
+                                    "deviceID": controllerDEVICE.text,
+                                  });
+                                }
+                                print(birthday.text);
                                 Future.delayed(Duration(seconds: 6), () async {
                                   await FirebaseFirestore.instance
-                                        .collection('users')
-                                        .doc(uid)
-                                        .collection('children')
-                                        .doc(widget.childID)
-                                        .set({
-                                      'image':
-                                          imgURL.isEmpty ? childImage : imgURL,
-                                      'name': childName.text,
-                                      'gender': selectedGender,
-                                      'height': int.parse(childHeight.text),
-                                      'birthday': DateTime.parse(birthday.text)
-                                    });
-                                    Fluttertoast.showToast(
-                                    msg: "تم تعديل بيانات الطفل ",
-                                    toastLength: Toast.LENGTH_SHORT,
-                                    gravity: ToastGravity.BOTTOM,
-                                    timeInSecForIosWeb: 1,
-                                    backgroundColor: Colors.lightGreen,
-                                    textColor: Colors.black,
-                                    fontSize: 16.0);
+                                      .collection('users')
+                                      .doc(uid)
+                                      .collection('children')
+                                      .doc(widget.childID)
+                                      .set({
+                                    'image':
+                                        imgURL.isEmpty ? childImage : imgURL,
+                                    'name': childName.text,
+                                    'gender': selectedGender,
+                                    'height': int.parse(childHeight.text),
+                                    'birthday': DateTime.parse(birthday.text)
+                                  });
+                                  Fluttertoast.showToast(
+                                      msg: "تم تعديل بيانات الطفل ",
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.BOTTOM,
+                                      timeInSecForIosWeb: 1,
+                                      backgroundColor: Colors.lightGreen,
+                                      textColor: Colors.black,
+                                      fontSize: 16.0);
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => NavPage(code: 0,)),
+                                        builder: (context) => NavPage(
+                                              code: 0,
+                                            )),
                                   );
                                   setState(() {
                                     isLoading = false;
@@ -355,6 +389,16 @@ class _editChildState extends State<editChild> {
                           context, 'حذف الطفل', 'هل أنت متأكد من حذف الطفل؟');
                       if (!mounted) return;
                       if (action == DialogsAction.yes) {
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                content: SizedBox(
+                                  height: 100,
+                                  child: CircularProgressIndicator(),
+                                ),
+                              );
+                            });
                         setState(() => tappedYes = true);
                         if (!mounted) return;
                         //delete child here
@@ -363,7 +407,20 @@ class _editChildState extends State<editChild> {
                             .doc(uid)
                             .collection('children')
                             .doc(widget.childID);
-                        docChild.delete();
+                        await docChild.delete();
+                        await FirebaseFirestore.instance
+                            .collection("devices")
+                            .where("childID", isEqualTo: widget.childID)
+                            .get()
+                            .then((value) {
+                          value.docs.forEach((element) {
+                            element.reference.delete();
+                          });
+                        });
+                        await FirebaseDatabase.instance
+                            .ref("devices/${widget.childID}")
+                            .remove();
+                        Navigator.pop(context);
                         Fluttertoast.showToast(
                             msg: "تم حذف الطفل ",
                             toastLength: Toast.LENGTH_SHORT,
@@ -374,7 +431,10 @@ class _editChildState extends State<editChild> {
                             fontSize: 16.0);
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => NavPage(code: 0,)),
+                          MaterialPageRoute(
+                              builder: (context) => NavPage(
+                                    code: 0,
+                                  )),
                         );
                       } else {
                         setState(() => tappedYes = false);
@@ -418,6 +478,57 @@ class _editChildState extends State<editChild> {
       ),
     );
   }
+
+  bool isDeviceVerify = false;
+  TextEditingController controllerDEVICE = TextEditingController();
+  Future<String?> openDeviceIdDialog() => showDialog<String>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('أدخل الرقم التسلسلي الجديد لجهاز التتبع'),
+          content: TextField(
+              autofocus: true,
+              controller: controllerDEVICE,
+              decoration: InputDecoration(hintText: 'gpsxxxidxx')),
+          actions: [
+            TextButton(
+              child: Text('تحقق'),
+              onPressed: () async {
+                if (controllerDEVICE.text.isEmpty) {
+                  Fluttertoast.showToast(msg: "الرجاء إدخال معرّف الجهاز");
+                  return;
+                }
+                QuerySnapshot<Map<String, dynamic>> child =
+                    await FirebaseFirestore.instance
+                        .collection("devices")
+                        .where("deviceID", isEqualTo: controllerDEVICE.text)
+                        .get();
+                if (child.docs.length == 0) {
+                  Navigator.pop(context, controllerDEVICE.text);
+                  //  Fluttertoast.showToast(msg: "تم التحقق من الجهاز");
+                  Fluttertoast.showToast(
+                      msg: "تم التحقق من الجهاز",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIosWeb: 3,
+                      backgroundColor: Colors.lightGreen,
+                      fontSize: 16.0,
+                      textColor: Colors.black);
+                } else {
+                  //  Fluttertoast.showToast(msg: "الجهاز مستخدم بالفعل");
+                  Fluttertoast.showToast(
+                      msg: "الجهاز مستخدم بالفعل",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIosWeb: 3,
+                      backgroundColor: Colors.red,
+                      fontSize: 16.0,
+                      textColor: Colors.black);
+                }
+              },
+            )
+          ],
+        ),
+      );
 
 //bottom container of image source options
   bottomImgPicker() {

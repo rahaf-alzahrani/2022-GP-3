@@ -609,9 +609,6 @@ class _HomePageState extends State<HomePage> {
         "long": deviceData["long"]
       };
 
-      if (deviceData["lat"].toInt() == 0 && deviceData["long"].toInt() == 0) {
-        continue;
-      }
       http.Response response =
           await http.get(Uri.parse(_childrenList.last.childImagePath!));
       final ui.Codec markerImageCodec = await ui.instantiateImageCodec(
@@ -644,7 +641,10 @@ class _HomePageState extends State<HomePage> {
       final ByteData? byteData =
           await _image.toByteData(format: ui.ImageByteFormat.png);
       final Uint8List resizedImageMarker = byteData!.buffer.asUint8List();
-
+      markupIcons[doc.id] = BitmapDescriptor.fromBytes(resizedImageMarker);
+      if (deviceData["lat"].toInt() == 0 && deviceData["long"].toInt() == 0) {
+        continue;
+      }
       circlesMap[doc.id] = Circle(
           circleId: CircleId(doc.id),
           center: LatLng(
@@ -652,7 +652,6 @@ class _HomePageState extends State<HomePage> {
           radius: 100,
           fillColor: Colors.blue.withOpacity(0.2),
           strokeWidth: 0);
-      markupIcons[doc.id] = BitmapDescriptor.fromBytes(resizedImageMarker);
       markersMap[doc.id] = Marker(
         icon: BitmapDescriptor.fromBytes(resizedImageMarker),
         markerId: MarkerId(doc.id),

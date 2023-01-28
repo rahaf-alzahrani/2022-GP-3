@@ -18,7 +18,8 @@ class HomelistBox extends StatelessWidget {
     zoneList.add();
     zoneList.addZonesName();
     var theZoneName = "";
-    if (childsLocations[_childlist.childID]!['lat'] != 0) {
+    if (childsLocations.containsKey(_childlist.childID) &&
+        childsLocations[_childlist.childID]!['lat'] != 0) {
       Point point = Point(
           x: childsLocations[_childlist.childID]!['lat'],
           y: childsLocations[_childlist.childID]!['long']);
