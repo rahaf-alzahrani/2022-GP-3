@@ -422,30 +422,6 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.white,
                     )),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 25.0),
-                child: Container(
-                    height: height * 0.06,
-                    decoration: BoxDecoration(
-                        color: kPrimaryColor,
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color(0xff484848).withOpacity(.3),
-                              offset: Offset(0, 4),
-                              blurRadius: 8)
-                        ]),
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => createQR()),
-                        );
-                      },
-                      icon: Icon(Icons.qr_code, size: 20),
-                      color: Colors.white,
-                    )),
-              )
             ],
           ),
           _childrenList.length == 0

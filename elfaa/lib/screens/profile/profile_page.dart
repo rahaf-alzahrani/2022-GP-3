@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:elfaa/screens/Homepage/createQR.dart';
 
 bool isSwitched = false;
 
@@ -326,6 +327,53 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             return changePasswordPage();
                           },
                         ),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: ScreenHeight * 0.025),
+                Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: ElevatedButton.icon(
+                    icon: Icon(
+                      Icons.qr_code,
+                      color: kPrimaryColor,
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStatePropertyAll<Color>(Color(0xFFf5f5f5)),
+                      maximumSize: MaterialStateProperty.all(Size(180, 56)),
+                      minimumSize: MaterialStateProperty.all(Size(180, 56)),
+                      side: MaterialStateProperty.all(
+                        BorderSide.lerp(
+                            BorderSide(
+                              style: BorderStyle.solid,
+                              color: kPrimaryColor,
+                              width: 1.0,
+                            ),
+                            BorderSide(
+                              style: BorderStyle.solid,
+                              color: kPrimaryColor,
+                              width: 1.0,
+                            ),
+                            1.0),
+                      ),
+                      overlayColor: MaterialStateProperty.resolveWith<Color>(
+                        (Set<MaterialState> states) {
+                          if (states.contains(MaterialState.hovered))
+                            return Color(0xFFBED7DC);
+                          return Color(0xFFBED7DC);
+                        },
+                      ),
+                    ),
+                    label: Text(
+                      'عرض الباركود',
+                      style: TextStyle(color: kPrimaryColor, fontSize: 20),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => createQR()),
                       );
                     },
                   ),

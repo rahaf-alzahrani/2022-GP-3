@@ -30,22 +30,27 @@ class _createQRState extends State<createQR> {
   final ImagePicker _picker = ImagePicker();
   String imgURL = '';
 //information form controllers
-  final controllerName = TextEditingController();
-  final controllerBirthday = TextEditingController();
-  final controllerHeight = TextEditingController();
-  String selectedGender = 'أنثى';
-
+  TextEditingController name = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController phoneNo = TextEditingController();
 //globalKey
   final _formKey = GlobalKey<FormState>();
 
 //Parent info
-  String pID = '';
   Future<void> getCurrentP() async {
     final FirebaseAuth _auth = FirebaseAuth.instance;
     final User? user = await _auth.currentUser;
+    if (!mounted) return;
     final uid = user!.uid;
-    setState(() {
-      pID = uid;
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(uid)
+        .get()
+        .then((DocumentSnapshot<Map<String, dynamic>> snapshot) {
+      if (!mounted) return;
+      name.text = snapshot['name'];
+      email.text = snapshot['email'];
+      phoneNo.text = snapshot['phoneNo'].toString();
     });
   }
 
@@ -58,7 +63,7 @@ class _createQRState extends State<createQR> {
 
   @override
   void initState() {
-    controllerBirthday.text = ""; //set the initial value of text field
+    //set the initial value of text field
     getCurrentP();
     super.initState();
 
@@ -111,22 +116,104 @@ class _createQRState extends State<createQR> {
                 20, MediaQuery.of(context).size.height * 0.04, 20, 0),
             child: Column(
               children: <Widget>[
-                QrImage(
-                data: controllerName.text,
-                size: 300,
-                embeddedImage: AssetImage('assets/images/logo1.png'),
-                embeddedImageStyle: QrEmbeddedImageStyle(
-                  size: Size(80,80)
+                Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      "هذا الباركود يمكن الآخرين من الوصول لمعلومات والدي الطفل ",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: kdarkColor,
+                          fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    )),
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: QrImage(
+                    data: ("${phoneNo.text}"),
+                    errorCorrectionLevel: 3,
+                    size: 300,
+                    foregroundColor: kPrimaryColor,
+                    backgroundColor: kLightColor,
+                    embeddedImage: AssetImage('assets/images/logo1.png'),
+                    embeddedImageStyle:
+                        QrEmbeddedImageStyle(size: Size(80, 80)),
+                  ),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.all(20),
-                child: TextField(
-                  controller: controllerName,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(), labelText: 'ادخل رقم الهاتف'),
+                Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: kPrimaryColor,
+                        border: Border(
+                          left: BorderSide(
+                            color: kPrimaryColor,
+                            width: 5.0,
+                          ),
+                          right: BorderSide(
+                            color: kPrimaryColor,
+                            width: 5.0,
+                          ),
+                          bottom: BorderSide(
+                            color: kPrimaryColor,
+                            width: 5.0,
+                          ),
+                        ),
+                      ),
+                      alignment: Alignment.center,
+                      height: 43,
+                      width: 290,
+                      child: Text("أتصل على عائلتي",
+                          style: TextStyle(
+                              fontSize: 25,
+                              color: kLightColor,
+                              fontWeight: FontWeight.bold)),
+                    )),
+                Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: Padding(
+                    padding: const EdgeInsets.all(50.0),
+                    child: ElevatedButton.icon(
+                      icon: Icon(
+                        Icons.print,
+                        color: kPrimaryColor,
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll<Color>(Color(0xFFf5f5f5)),
+                        maximumSize: MaterialStateProperty.all(Size(150, 56)),
+                        minimumSize: MaterialStateProperty.all(Size(150, 56)),
+                        side: MaterialStateProperty.all(
+                          BorderSide.lerp(
+                              BorderSide(
+                                style: BorderStyle.solid,
+                                color: kPrimaryColor,
+                                width: 1.0,
+                              ),
+                              BorderSide(
+                                style: BorderStyle.solid,
+                                color: kPrimaryColor,
+                                width: 1.0,
+                              ),
+                              1.0),
+                        ),
+                        overlayColor: MaterialStateProperty.resolveWith<Color>(
+                          (Set<MaterialState> states) {
+                            if (states.contains(MaterialState.hovered))
+                              return Color(0xFFBED7DC);
+                            return Color(0xFFBED7DC);
+                          },
+                        ),
+                      ),
+                      label: Text(
+                        'طباعة',
+                        style: TextStyle(color: kPrimaryColor, fontSize: 20),
+                      ),
+                      onPressed: () {
+                        print(name.text);
+                      },
+                    ),
+                  ),
                 ),
-              ),
               ],
             ),
           ),
@@ -279,40 +366,6 @@ class _createQRState extends State<createQR> {
 
   InputDecoration decoration(String label) =>
       InputDecoration(labelText: label, border: const OutlineInputBorder());
-
-  //adding child doc to a parent doc in the firestore database
-  Future addChild(Child child) async {
-    //Reference to document
-
-    final docChild = FirebaseFirestore.instance
-        .collection('users')
-        .doc(pID)
-        .collection('children')
-        .doc();
-
-    // Add Device into Device Collection
-    final docDevice = FirebaseFirestore.instance.collection('devices').doc();
-    //Create doc and write data
-    await docDevice.set({
-      'deviceID': controllerDEVICE.text,
-      'childID': docChild.id,
-      'parentID': pID,
-    });
-
-    final json = child.toJson();
-    //Create doc and write data
-    await docChild.set(json);
-    print(docChild.id);
-    // Add Device to Realtime Database
-    DatabaseReference ref =
-        FirebaseDatabase.instance.ref('devices/${docChild.id}');
-    ref.set({
-      'deviceID': controllerDEVICE.text,
-      'long': 0.0,
-      'lat': 0.0,
-      'timestamp': 0.0
-    });
-  }
 }
 
 //child class
