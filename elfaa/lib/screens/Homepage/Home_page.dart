@@ -182,11 +182,18 @@ class _HomePageState extends State<HomePage> {
 
         if (profile.isSwitched) {
           if (15 < dist && !isHeWithme) {
+            notification().showNotification(
+                title: "تحذير",
+                body: " متر" +
+                    "$allowedDis" +
+                    "انتبه طفلك تجاوز المسافة المسموحة بـ ",
+                payload: "csadv");
             range_alert.oklDialog(
               context,
               "تحذير  ",
               "انتبه طفلك تجاوز المسافة المسموحة بـ " + "$allowedDis" + " متر",
             );
+
             // not.showNotification(
             //     id: 0,
             //     title: "تحذير",
@@ -440,10 +447,6 @@ class _HomePageState extends State<HomePage> {
                           context,
                           MaterialPageRoute(builder: (context) => createQR()),
                         );
-                        // notification().showNotification(
-                        //     title: "Layan",
-                        //     body: "mlzbdbdzfeht",
-                        //     payload: "csadv");
                       },
                       icon: Icon(Icons.qr_code, size: 20),
                       color: Colors.white,

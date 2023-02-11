@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:elfaa/screens/Homepage/HomelistBox.dart';
 
+import '../../notification.dart';
 import '../../range_alert.dart';
 import 'package:age_calculator/age_calculator.dart';
 import 'package:elfaa/screens/Homepage/Home_page.dart';
@@ -131,6 +132,13 @@ class _viewChildState extends State<viewChild> {
             theZoneName = zoneList.zoneNames[i]['name'];
 
             if (zoneList.zoneNames[i]['criticalZones']) {
+              notification().showNotification(
+                  title: "تحذير",
+                  body: "انتبه طفلك" +
+                      ' ${widget.childname} ' +
+                      "دخل منطقة محظورة "
+                          "\n\"${zoneList.zoneNames[i]['name']}\"",
+                  payload: '${widget.childImage}');
               range_alert.oklDialog(
                 context,
                 "تحذير  ",
@@ -419,10 +427,8 @@ class _viewChildState extends State<viewChild> {
                             ]),
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20.0),
-                                child: networkImg(
-                                    'https://www.google.com/search?q=child+picture&oq=child+pict&aqs=chrome.1.69i57j0i512l9.6052j0j15&sourceid=chrome&ie=UTF-8#imgrc=aw28jG7aUMzolM',
-                                    ScreenWidth * 0.9,
-                                    ScreenHeight * 0.8)),
+                                child: networkImg("${widget.childImage}",
+                                    ScreenWidth * 0.9, ScreenHeight * 0.8)),
                           ),
                         ],
                       ),
