@@ -98,10 +98,6 @@ class _HomePageState extends State<HomePage> {
     if (!mounted) return;
   }
 
-  void dispose() {
-    super.dispose();
-  }
-
 // //critical zones
 //   LocationData? currentLocation2;
 //    void check_zone() async {
@@ -166,7 +162,7 @@ class _HomePageState extends State<HomePage> {
         updateMarkerAndcircle(location);
       },
     );
-    GoogleMapController googleMapController = await _mapcontroller.future;
+    //GoogleMapController googleMapController = await _mapcontroller.future;
     location.onLocationChanged.listen(
       (newLoc) {
         currentLocation = newLoc;
@@ -230,6 +226,7 @@ class _HomePageState extends State<HomePage> {
     Location location = Location();
 
     GoogleMapController googleMapController = await _mapcontroller.future;
+
     location.getLocation().then(
       (location) {
         currentLocation = location;
@@ -570,8 +567,6 @@ class _HomePageState extends State<HomePage> {
         .get();
     if (!mounted) return;
 
-    if (!mounted) return;
-
     // _childrenList =
     //     List.from(data.docs.map((doc) => childrenList.fromSnapshot(doc)));
     _childrenList = [];
@@ -581,6 +576,7 @@ class _HomePageState extends State<HomePage> {
       DatabaseReference ref =
           FirebaseDatabase.instance.ref("devices/${doc.id}");
       DataSnapshot temp = await ref.get();
+      if (!mounted) return;
       Map deviceData = temp.value as Map;
 
       childsLocations[_childrenList.last.childID!] = {
@@ -590,12 +586,15 @@ class _HomePageState extends State<HomePage> {
 
       http.Response response =
           await http.get(Uri.parse(_childrenList.last.childImagePath!));
+      if (!mounted) return;
       final ui.Codec markerImageCodec = await ui.instantiateImageCodec(
           response.bodyBytes.buffer.asUint8List(),
           targetHeight: 50,
           targetWidth: 50);
+      if (!mounted) return;
       int size = 60;
       final ui.FrameInfo frameInfo = await markerImageCodec.getNextFrame();
+      if (!mounted) return;
       final ui.PictureRecorder pictureRecorder = ui.PictureRecorder();
       final Canvas canvas = Canvas(pictureRecorder);
 
@@ -616,9 +615,12 @@ class _HomePageState extends State<HomePage> {
       final _image = await pictureRecorder
           .endRecording()
           .toImage(size, (size * 1.1).toInt());
+      if (!mounted) return;
       final data = await _image.toByteData(format: ui.ImageByteFormat.png);
+      if (!mounted) return;
       final ByteData? byteData =
           await _image.toByteData(format: ui.ImageByteFormat.png);
+      if (!mounted) return;
       final Uint8List resizedImageMarker = byteData!.buffer.asUint8List();
       markupIcons[doc.id] = BitmapDescriptor.fromBytes(resizedImageMarker);
       if (deviceData["lat"].toInt() == 0 && deviceData["long"].toInt() == 0) {
@@ -653,6 +655,7 @@ class _HomePageState extends State<HomePage> {
       // });
 
     }
+    if (!mounted) return;
     setState(() {});
   }
 
@@ -660,7 +663,7 @@ class _HomePageState extends State<HomePage> {
     LatLng latIng = LatLng(newLocaldata.latitude!, newLocaldata.longitude!);
     this.setState(() {
       circle = Circle(
-        circleId: CircleId("car"),
+        circleId: CircleId("range"),
         center: latIng,
         radius: 15,
         zIndex: 1,
@@ -690,5 +693,9 @@ class _HomePageState extends State<HomePage> {
           : circlesMap.values.toList()),
       polygons: zoneList.polygons,
     );
+  }
+
+  void dispose() {
+    super.dispose();
   }
 }
