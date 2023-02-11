@@ -25,7 +25,6 @@ import 'package:geolocator/geolocator.dart';
 import '../../range_alert.dart';
 import '../profile/profile_page.dart' as profile;
 
-bool isHeWithme = false;
 int index = 2;
 final Color color1 = kPrimaryColor;
 final Color color2 = kPrimaryColor;
@@ -42,6 +41,7 @@ class _HomePageState extends State<HomePage> {
   String userid = "";
   var theZoneName = "";
 
+  bool isHeWithme = false;
   late final notification not;
   static Circle circle = Circle(
     circleId: CircleId('currentCircle'),
@@ -182,21 +182,23 @@ class _HomePageState extends State<HomePage> {
 
         if (profile.isSwitched) {
           if (15 < dist && !isHeWithme) {
-            isHeWithme = true;
             range_alert.oklDialog(
               context,
               "تحذير  ",
               "انتبه طفلك تجاوز المسافة المسموحة بـ " + "$allowedDis" + " متر",
             );
 
-            not.showNotification(
-                id: 0,
-                title: "تحذير",
-                body: "انتبه طفلك تجاوز المسافة المسموحة بـ " +
-                    "$allowedDis" +
-                    " متر");
+            // not.showNotification(
+            //     id: 0,
+            //     title: "تحذير",
+            //     body: "انتبه طفلك تجاوز المسافة المسموحة بـ "
+            //     //+
+            //     //     "$allowedDis" +
+            //     //     " متر"
+            //     );
+            isHeWithme = true;
           } else if (15 >= dist && isHeWithme) {
-            isHeWithme = false;
+            isHeWithme = true;
           }
         }
 
@@ -652,7 +654,7 @@ class _HomePageState extends State<HomePage> {
     LatLng latIng = LatLng(newLocaldata.latitude!, newLocaldata.longitude!);
     this.setState(() {
       circle = Circle(
-        circleId: CircleId("range"),
+        circleId: CircleId("car"),
         center: latIng,
         radius: 15,
         zIndex: 1,

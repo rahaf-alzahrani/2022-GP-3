@@ -3,7 +3,7 @@ import 'dart:collection';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:elfaa/screens/Homepage/HomelistBox.dart';
-import '../profile/profile_page.dart' as profile;
+
 import '../../notification.dart';
 import '../../range_alert.dart';
 import 'package:age_calculator/age_calculator.dart';
@@ -50,7 +50,7 @@ class _viewChildState extends State<viewChild> {
   bool tappedYes = false;
   bool loading = false;
   var theZoneName = "";
-  late final notification not;
+
   GoogleMapController? mapController;
   Uint8List? markerimage;
   Completer<GoogleMapController> _mapcontroller = Completer();
@@ -94,76 +94,12 @@ class _viewChildState extends State<viewChild> {
     );
   }
 
-  void check_range() async {
-    Location location = Location();
-    location.getLocation().then(
-      (location) {
-        currentLocation = location;
-        updateMarkerAndcircle(location);
-      },
-    );
-    GoogleMapController googleMapController = await _mapcontroller.future;
-    location.onLocationChanged.listen(
-      (newLoc) {
-        currentLocation = newLoc;
-        //LatLng myChildLocation = LatLng(24.769788, 46.644595); //allowed
-        LatLng myChildLocation = LatLng(24.769642, 46.644723); //not allowed
-        LatLng myLocation = LatLng(newLoc.latitude!, newLoc.longitude!);
-        double dist = Geolocator.distanceBetween(
-            myChildLocation.latitude,
-            myChildLocation.longitude,
-            myLocation.latitude,
-            myLocation.longitude);
-        int allowedDis = dist.toInt() - 15;
-
-        if (profile.isSwitched) {
-          if (15 < dist && !isHeWithme) {
-            isHeWithme = true;
-            range_alert.oklDialog(
-              context,
-              "تحذير  ",
-              "انتبه طفلك" +
-                  " ${widget.childname} " +
-                  " تجاوز المسافة المسموحة بـ " +
-                  "$allowedDis" +
-                  " متر",
-            );
-
-            not.showNotification(
-                id: 0,
-                title: "تحذير",
-                body: "انتبه طفلك تجاوز المسافة المسموحة بـ " +
-                    "$allowedDis" +
-                    " متر");
-          } else if (15 >= dist && isHeWithme) {
-            isHeWithme = false;
-          }
-        }
-
-        // googleMapController.animateCamera(
-        //   CameraUpdate.newCameraPosition(
-        //     CameraPosition(
-        //       zoom: 17,
-        //       target: LatLng(
-        //         newLoc.latitude!,
-        //         newLoc.longitude!,
-        //       ),
-        //     ),
-        //   ),
-        // );
-        // setState(() {});
-        updateMarkerAndcircle(newLoc);
-      },
-    );
-  }
-
   @override
   void initState() {
     getCurrentLocation();
     getMyCurrentLocation();
     getCurrentLocation2();
     addZones();
-    check_range();
     getChildLocation();
     ref.onValue.listen((event) {
       DataSnapshot temp = event.snapshot;
@@ -207,7 +143,7 @@ class _viewChildState extends State<viewChild> {
                 context,
                 "تحذير  ",
                 "دخل منطقة محظورة " +
-                    ' ${widget.childname} ' +
+                    '${widget.childname}' +
                     "انتبه طفلك" +
                     "\n\"${zoneList.zoneNames[i]['name']}\"",
               );
