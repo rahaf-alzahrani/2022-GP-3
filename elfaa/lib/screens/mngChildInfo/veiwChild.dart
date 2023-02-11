@@ -8,7 +8,6 @@ import '../../notification.dart';
 import '../../range_alert.dart';
 import 'package:age_calculator/age_calculator.dart';
 import 'package:elfaa/screens/Homepage/Home_page.dart';
-import 'package:elfaa/screens/Homepage/Home_page.dart' as home;
 
 import 'package:elfaa/screens/Homepage/navPage.dart';
 import 'package:elfaa/screens/mngChildInfo/report_child.dart';
@@ -52,7 +51,7 @@ class _viewChildState extends State<viewChild> {
   bool tappedYes = false;
   bool loading = false;
   var theZoneName = "";
-
+  bool isHeWithme = false;
   GoogleMapController? mapController;
   Uint8List? markerimage;
   Completer<GoogleMapController> _mapcontroller = Completer();
@@ -118,7 +117,7 @@ class _viewChildState extends State<viewChild> {
         int allowedDis = dist.toInt() - 15;
 
         if (profile.isSwitched) {
-          if (15 < dist && !home.isHeWithme) {
+          if (15 < dist && !isHeWithme) {
             notification().showNotification(
                 title: "تحذير",
                 body: " متر" +
@@ -135,9 +134,9 @@ class _viewChildState extends State<viewChild> {
                   " متر",
             );
 
-            home.isHeWithme = true;
-          } else if (15 >= dist && home.isHeWithme) {
-            home.isHeWithme = true;
+            isHeWithme = true;
+          } else if (15 >= dist && !isHeWithme) {
+            isHeWithme = true;
           }
         }
 
@@ -177,6 +176,7 @@ class _viewChildState extends State<viewChild> {
         return;
       }
       setState(() {
+        check_range(LatLng(data['lat'], data['long']));
         zoneList.addZonesName();
         marker = Marker(
           markerId: MarkerId('${widget.childID}'),
@@ -214,7 +214,6 @@ class _viewChildState extends State<viewChild> {
             }
           }
         }
-        check_range(LatLng(data['lat'], data['long']));
       });
     });
 
