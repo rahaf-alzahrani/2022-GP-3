@@ -368,7 +368,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.only(left: 25.0, right: 25, bottom: 10),
             child: Container(
-              height: height * 0.2,
+              height: height * 0.3,
               width: MediaQuery.of(context).size.width,
               child: position != null
                   ? buildMap()
@@ -456,7 +456,7 @@ class _HomePageState extends State<HomePage> {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return Container(
-      height: height * 0.4,
+      height: height * 0.3,
       width: double.infinity,
       child: Stack(
         children: <Widget>[
