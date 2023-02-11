@@ -31,6 +31,7 @@ final Color color2 = kPrimaryColor;
 final Color color3 = kPrimaryColor;
 String username = "";
 List<childrenList> _childrenList = [];
+bool isHeWithme = false;
 
 class HomePage extends StatefulWidget {
   @override
@@ -41,7 +42,6 @@ class _HomePageState extends State<HomePage> {
   String userid = "";
   var theZoneName = "";
 
-  bool isHeWithme = false;
   late final notification not;
   static Circle circle = Circle(
     circleId: CircleId('currentCircle'),
@@ -252,7 +252,7 @@ class _HomePageState extends State<HomePage> {
     // not.initializePlatformSpecifics;
 
     getMyCurrentLocation();
-    check_range();
+    //check_range();
     addZones();
     getCurrentLocation2();
     getCurrentUserr();

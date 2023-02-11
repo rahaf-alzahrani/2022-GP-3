@@ -3,11 +3,13 @@ import 'dart:collection';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:elfaa/screens/Homepage/HomelistBox.dart';
-
+import '../profile/profile_page.dart' as profile;
 import '../../notification.dart';
 import '../../range_alert.dart';
 import 'package:age_calculator/age_calculator.dart';
 import 'package:elfaa/screens/Homepage/Home_page.dart';
+import 'package:elfaa/screens/Homepage/Home_page.dart' as home;
+
 import 'package:elfaa/screens/Homepage/navPage.dart';
 import 'package:elfaa/screens/mngChildInfo/report_child.dart';
 import 'package:elfaa/zones.dart';
@@ -94,6 +96,68 @@ class _viewChildState extends State<viewChild> {
     );
   }
 
+  void check_range(myChildLocation) async {
+    Location location = Location();
+    location.getLocation().then(
+      (location) {
+        currentLocation = location;
+        updateMarkerAndcircle(location);
+      },
+    );
+    //GoogleMapController googleMapController = await _mapcontroller.future;
+    location.onLocationChanged.listen(
+      (newLoc) {
+        currentLocation = newLoc;
+
+        LatLng myLocation = LatLng(newLoc.latitude!, newLoc.longitude!);
+        double dist = Geolocator.distanceBetween(
+            myChildLocation.latitude,
+            myChildLocation.longitude,
+            myLocation.latitude,
+            myLocation.longitude);
+        int allowedDis = dist.toInt() - 15;
+
+        if (profile.isSwitched) {
+          if (15 < dist && !home.isHeWithme) {
+            notification().showNotification(
+                title: "تحذير",
+                body: " متر" +
+                    "$allowedDis" +
+                    ' ${widget.childname} ' +
+                    "انتبه طفلك تجاوز المسافة المسموحة بـ ",
+                payload: "csadv");
+            range_alert.oklDialog(
+              context,
+              "تحذير  ",
+              ' ${widget.childname} ' +
+                  "انتبه طفلك تجاوز المسافة المسموحة بـ " +
+                  "$allowedDis" +
+                  " متر",
+            );
+
+            home.isHeWithme = true;
+          } else if (15 >= dist && home.isHeWithme) {
+            home.isHeWithme = true;
+          }
+        }
+
+        // googleMapController.animateCamera(
+        //   CameraUpdate.newCameraPosition(
+        //     CameraPosition(
+        //       zoom: 17,
+        //       target: LatLng(
+        //         newLoc.latitude!,
+        //         newLoc.longitude!,
+        //       ),
+        //     ),
+        //   ),
+        // );
+        // setState(() {});
+        updateMarkerAndcircle(newLoc);
+      },
+    );
+  }
+
   @override
   void initState() {
     getCurrentLocation();
@@ -142,16 +206,18 @@ class _viewChildState extends State<viewChild> {
               range_alert.oklDialog(
                 context,
                 "تحذير  ",
-                "دخل منطقة محظورة " +
-                    '${widget.childname}' +
-                    "انتبه طفلك" +
+                "انتبه طفلك" +
+                    ' ${widget.childname} ' +
+                    "دخل منطقة محظورة " +
                     "\n\"${zoneList.zoneNames[i]['name']}\"",
               );
             }
           }
         }
+        check_range(LatLng(data['lat'], data['long']));
       });
     });
+
     super.initState();
   }
 
