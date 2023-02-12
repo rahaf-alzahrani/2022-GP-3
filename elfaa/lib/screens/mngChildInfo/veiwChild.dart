@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:elfaa/screens/Homepage/HomelistBox.dart';
 import '../profile/profile_page.dart' as profile;
 import '../../notification.dart';
@@ -211,6 +212,7 @@ class _viewChildState extends State<viewChild> {
                     "دخل منطقة محظورة " +
                     "\n\"${zoneList.zoneNames[i]['name']}\"",
               );
+              writeNote(zoneList.zoneNames[i]['name']);
             }
           }
         }
@@ -798,6 +800,16 @@ class _viewChildState extends State<viewChild> {
                   : []),
       polygons: zoneList.polygons,
     );
+  }
+
+  Future<void> writeNote(zoneName) async {
+    await FirebaseFirestore.instance.collection('notification_parent').add({
+      "message": "انتبه طفلك" +
+          ' ${widget.childname} ' +
+          "دخل منطقة محظورة " +
+          "\n\"${zoneName}\"",
+      "time": Timestamp.now()
+    });
   }
 }
 
