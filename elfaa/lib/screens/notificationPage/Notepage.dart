@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:elfaa/constants.dart';
+import 'package:elfaa/screens/Homepage/Home_page.dart';
 import 'package:elfaa/screens/admin/admin_alert/admin_alert_page.dart';
+import 'package:elfaa/screens/notificationPage/notification_Parent.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import '../admin/admin_notification/notification.dart';
 
 class Notepage extends StatefulWidget {
   const Notepage({super.key});
@@ -46,7 +46,7 @@ class _Notepage extends State<Notepage> {
         child: Column(
           children: [
             SizedBox(height: height * 0.01),
-            StreamBuilder<List<UserNotification>>(
+            StreamBuilder<List<UserNotification2>>(
                 stream: notificationStream(),
                 builder: (context, snapshot) {
                   final notifications = snapshot.data ?? [];
@@ -134,8 +134,9 @@ class _Notepage extends State<Notepage> {
                                           width: width * 0.02,
                                         ),
                                         CircleAvatar(
-                                          backgroundColor:
-                                              _getColor(notification.newStatus),
+                                          backgroundColor: color1
+                                          //    _getColor(notification.newStatus)
+                                          ,
                                           child: Icon(
                                             Icons.notifications_active,
                                             color: Colors.white,
@@ -165,16 +166,16 @@ class _Notepage extends State<Notepage> {
     }
   }
 
-  Stream<List<UserNotification>> notificationStream() {
+  Stream<List<UserNotification2>> notificationStream() {
     return FirebaseFirestore.instance
-        .collection("notification")
+        .collection("notification_parent")
         .orderBy('time', descending: true)
         .snapshots()
         .map((querySnapshot) {
-      List<UserNotification> notifications = [];
+      List<UserNotification2> notifications = [];
 
       for (QueryDocumentSnapshot documentSnapshot in querySnapshot.docs) {
-        notifications.add(UserNotification.fromMap(documentSnapshot));
+        notifications.add(UserNotification2.fromMap(documentSnapshot));
       }
       return notifications;
     });
