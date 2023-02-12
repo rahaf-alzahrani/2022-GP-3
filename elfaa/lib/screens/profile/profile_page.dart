@@ -373,7 +373,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => createQR()),
+                        MaterialPageRoute(builder: (context) => createQR(phoneNo: "${phoneNo.text}")),
                       );
                     },
                   ),

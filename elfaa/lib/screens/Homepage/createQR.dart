@@ -14,8 +14,10 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class createQR extends StatefulWidget {
-  const createQR({super.key});
+  const createQR({super.key,
+  required this.phoneNo,});
 
+  final String phoneNo;
   @override
   State<createQR> createState() => _createQRState();
 }
@@ -30,29 +32,29 @@ class _createQRState extends State<createQR> {
   final ImagePicker _picker = ImagePicker();
   String imgURL = '';
 //information form controllers
-  TextEditingController name = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController phoneNo = TextEditingController();
+  // TextEditingController name = TextEditingController();
+  // TextEditingController email = TextEditingController();
+  // TextEditingController phoneNo = TextEditingController();
 //globalKey
   final _formKey = GlobalKey<FormState>();
 
 //Parent info
-  Future<void> getCurrentP() async {
-    final FirebaseAuth _auth = FirebaseAuth.instance;
-    final User? user = await _auth.currentUser;
-    if (!mounted) return;
-    final uid = user!.uid;
-    await FirebaseFirestore.instance
-        .collection('users')
-        .doc(uid)
-        .get()
-        .then((DocumentSnapshot<Map<String, dynamic>> snapshot) {
-      if (!mounted) return;
-      name.text = snapshot['name'];
-      email.text = snapshot['email'];
-      phoneNo.text = snapshot['phoneNo'].toString();
-    });
-  }
+  // Future<void> getCurrentP() async {
+  //   final FirebaseAuth _auth = FirebaseAuth.instance;
+  //   final User? user = await _auth.currentUser;
+  //   if (!mounted) return;
+  //   final uid = user!.uid;
+  //   await FirebaseFirestore.instance
+  //       .collection('users')
+  //       .doc(uid)
+  //       .get()
+  //       .then((DocumentSnapshot<Map<String, dynamic>> snapshot) {
+  //     if (!mounted) return;
+  //     name.text = snapshot['name'];
+  //     email.text = snapshot['email'];
+  //     phoneNo.text = snapshot['phoneNo'].toString();
+  //   });
+  // }
 
   //Loading for uploading
   bool isLoading = false;
@@ -64,7 +66,7 @@ class _createQRState extends State<createQR> {
   @override
   void initState() {
     //set the initial value of text field
-    getCurrentP();
+    // getCurrentP();
     super.initState();
 
     controllerDEVICE = TextEditingController();
@@ -129,8 +131,8 @@ class _createQRState extends State<createQR> {
                 Container(
                   margin: EdgeInsets.only(top: 20),
                   child: QrImage(
-                    data: ("${phoneNo.text}"),
-                    errorCorrectionLevel: 3,
+                    data: ("${widget.phoneNo}"),
+                    errorCorrectionLevel: 2,
                     size: 300,
                     foregroundColor: kPrimaryColor,
                     backgroundColor: kLightColor,
@@ -209,7 +211,7 @@ class _createQRState extends State<createQR> {
                         style: TextStyle(color: kPrimaryColor, fontSize: 20),
                       ),
                       onPressed: () {
-                        print(name.text);
+                        print("Print");
                       },
                     ),
                   ),
