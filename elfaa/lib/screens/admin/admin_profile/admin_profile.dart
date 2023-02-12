@@ -335,31 +335,7 @@ class _AdminProfileState extends State<AdminProfile> {
                     },
                   ),
                 ),
-                SizedBox(height: ScreenHeight * 0.09),
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Row(
-                    children: [
-                      Switch(
-                        value: isSwitched,
-                        onChanged: (value) {
-                          setState(() {
-                            isSwitched = value;
-                            print(isSwitched);
-                          });
-                        },
-                        splashRadius: 50.0,
-                        activeTrackColor: Color.fromARGB(255, 132, 198, 190),
-                        activeColor: color1,
-                      ),
-                      Text(
-                        "خاصية إشعار المسافة",
-                        style: TextStyle(color: kPrimaryColor, fontSize: 20),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: ScreenHeight * 0.09),
+                SizedBox(height: ScreenHeight * 0.06),
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: ElevatedButton.icon(
