@@ -181,21 +181,8 @@ class _AddSecurityGuardState extends State<AddSecurityGuard> {
                                       topLeft: Radius.circular(22),
                                       bottomLeft: Radius.circular(22)),
                                 ),
-                                suffixIcon: IconButton(
-                                    onPressed: () {
-                                      final data =
-                                          ClipboardData(text: pass.text);
-                                      Clipboard.setData(data);
-
-                                      final snackbar = SnackBar(
-                                          content: Text("تم نسخ كلمة المرور "));
-
-                                      ScaffoldMessenger.of(context)
-                                        ..removeCurrentSnackBar()
-                                        ..showSnackBar(snackbar);
-                                    },
-                                    icon: Icon(Icons.copy),
-                                    color: Color(0xFFFD8601)),
+                                suffixIcon: Icon(Icons.lock,
+                            color: Color(0xFFFD8601)),
                                 labelText: "كلمة المرور",
                                 hintText: "أنشئ كلمة مرور عشوائية"),
                             validator: (value) {
@@ -220,10 +207,11 @@ class _AddSecurityGuardState extends State<AddSecurityGuard> {
                         setState(() {
                           userID = res.user!.uid;
                         });
-                         print("User ID  ::: $userID");
+                        print("User ID  ::: $userID");
                         //add user details
                         addUserDetails(name.text.trim(), email.text.trim(),
                             phoneNo.text.trim(), userID);
+                        sendEmail(email.text.trim(), pass.text.toString());
                         Fluttertoast.showToast(
                             msg: "تم إضافة حارس الأمن بنجاح",
                             toastLength: Toast.LENGTH_SHORT,
@@ -279,7 +267,7 @@ class _AddSecurityGuardState extends State<AddSecurityGuard> {
 
   Widget buildButtonWidget() {
     return SizedBox(
-      width: 90,
+      width: 85,
       height: 50,
       child: ElevatedButton(
           style: ButtonStyle(
@@ -289,11 +277,31 @@ class _AddSecurityGuardState extends State<AddSecurityGuard> {
                           topRight: Radius.circular(18),
                           bottomRight: Radius.circular(18))))),
           onPressed: () {
-            final password = generatePassword();
-            pass.text = password;
+             final password = generatePassword();
+             pass.text = password;
           },
           child: Text("إنشاء",
               style: TextStyle(color: Colors.white, fontSize: 15))),
     );
+  }
+
+  sendEmail(String sendEmailTo, String pass) async {
+    final FirebaseFirestore db = FirebaseFirestore.instance;
+    await db.collection("passMail").add(
+      {
+        'from': 'best.graduation.project@gmail.com',
+        'to': "$sendEmailTo",
+        'message': {
+          'subject': "Elfaa Security Password",
+          'text': "Your Password is: $pass",
+// 'html': "This is the <code>HTML</code> section of the email body.",
+        },
+      },
+    ).then(
+      (value) {
+        print("Queued email for delivery!");
+      },
+    );
+    print('Email done');
   }
 }
