@@ -3,8 +3,12 @@ import 'package:elfaa/constants.dart';
 import 'package:elfaa/screens/Homepage/Home_page.dart';
 import 'package:elfaa/screens/admin/admin_alert/admin_alert_page.dart';
 import 'package:elfaa/screens/notificationPage/notification_Parent.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+String lastTimestamp = "";
+String newTimestamp = "";
 
 class Notepage extends StatefulWidget {
   const Notepage({super.key});
@@ -14,13 +18,26 @@ class Notepage extends StatefulWidget {
 }
 
 class _Notepage extends State<Notepage> {
+  String pID = '';
+  Future<void> getCurrentP() async {
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    final User? user = await _auth.currentUser;
+    final uid = user!.uid;
+    setState(() {
+      pID = uid;
+    });
+  }
+
+  @override
+  void initState() {
+    getCurrentP();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-
-    AdminAlertPage.lastTimestamp = "";
-    AdminAlertPage.newTimestamp = "";
 
     return Scaffold(
       appBar: AppBar(
@@ -60,16 +77,14 @@ class _Notepage extends State<Notepage> {
 
                         bool showTimestamp = false;
 
-                        AdminAlertPage.newTimestamp =
+                        newTimestamp =
                             DateFormat("DD/MM/yyyy").format(notification.time);
 
-                        if (AdminAlertPage.lastTimestamp !=
-                            AdminAlertPage.newTimestamp) {
+                        if (lastTimestamp != newTimestamp) {
                           showTimestamp = true;
                         }
 
-                        AdminAlertPage.lastTimestamp =
-                            AdminAlertPage.newTimestamp;
+                        lastTimestamp = newTimestamp;
 
                         return Column(
                           children: [
@@ -168,7 +183,9 @@ class _Notepage extends State<Notepage> {
 
   Stream<List<UserNotification2>> notificationStream() {
     return FirebaseFirestore.instance
-        .collection("notification_parent")
+        .collection('users')
+        .doc(pID)
+        .collection('notification')
         .orderBy('time', descending: true)
         .snapshots()
         .map((querySnapshot) {

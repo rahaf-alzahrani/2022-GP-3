@@ -4,6 +4,8 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:elfaa/screens/Homepage/HomelistBox.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '../notificationPage/notification_Parent.dart';
 import '../profile/profile_page.dart' as profile;
 import '../../notification.dart';
 import '../../range_alert.dart';
@@ -65,6 +67,16 @@ class _viewChildState extends State<viewChild> {
   Future<void> addZones() async {
     zoneList = zones();
     zoneList.LoadData();
+  }
+
+  String pID = '';
+  Future<void> getCurrentP() async {
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    final User? user = await _auth.currentUser;
+    final uid = user!.uid;
+    setState(() {
+      pID = uid;
+    });
   }
 
   LocationData? currentLocation2;
@@ -160,6 +172,7 @@ class _viewChildState extends State<viewChild> {
 
   @override
   void initState() {
+    getCurrentP();
     getCurrentLocation();
     getMyCurrentLocation();
     getCurrentLocation2();
@@ -212,7 +225,15 @@ class _viewChildState extends State<viewChild> {
                     "دخل منطقة محظورة " +
                     "\n\"${zoneList.zoneNames[i]['name']}\"",
               );
-              writeNote(zoneList.zoneNames[i]['name']);
+              final note = UserNotification2(
+                message: "انتبه طفلك" +
+                    ' ${widget.childname} ' +
+                    "دخل منطقة محظورة " +
+                    "\n\"${zoneList.zoneNames[i]['name']}\"",
+                zone: zoneList.zoneNames[i]['name'],
+                time: DateTime.now(),
+              );
+              writeNote(note);
             }
           }
         }
@@ -802,14 +823,14 @@ class _viewChildState extends State<viewChild> {
     );
   }
 
-  Future<void> writeNote(zoneName) async {
-    await FirebaseFirestore.instance.collection('notification_parent').add({
-      "message": "انتبه طفلك" +
-          ' ${widget.childname} ' +
-          "دخل منطقة محظورة " +
-          "\n\"${zoneName}\"",
-      "time": Timestamp.now()
-    });
+  Future writeNote(UserNotification2 note) async {
+    final docNote = FirebaseFirestore.instance
+        .collection('users')
+        .doc(pID)
+        .collection('notification')
+        .doc();
+
+    await docNote.set(note.toMap());
   }
 }
 
